@@ -56,4 +56,17 @@ export default class TrocasModel {
   get photourl() {
     return this.#photourl;
   }
+  toApi() {
+    return {
+      id: this.#id,
+      nome: this.#nome,
+      trocaRealizadaId: this.#trocaRealizadaId,
+      descricao: this.#descricao,
+      listadeinteresses: this.#listadeinteresses,
+      trocado: this.#trocado,
+      quemcriou: this.#quemcriou,
+      photourl: this.#photourl,
+      tipo: this.#tipo,
+    };
+  }
 }
