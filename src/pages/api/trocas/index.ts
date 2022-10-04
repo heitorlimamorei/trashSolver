@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import trocasService from "../../../backEnd/services/troca.service";
-export default async function TrocaController(req: NextApiRequest, res: NextApiResponse) {
+export default async function TrocaController(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     if (req.method === "GET") {
       res.status(200).json(await trocasService.getTrocas());
@@ -8,7 +11,9 @@ export default async function TrocaController(req: NextApiRequest, res: NextApiR
       const troca = req.body;
 
       if (
-        (troca.descricao,
+        (troca.trocaRealizadaId,
+        troca.nome,
+        troca.descricao,
         troca.photourl,
         troca.quemcriou,
         troca.tipo,
@@ -24,6 +29,8 @@ export default async function TrocaController(req: NextApiRequest, res: NextApiR
 
       if (
         (troca.id,
+        troca.trocaRealizadaId,
+        troca.nome,
         troca.descricao,
         troca.photourl,
         troca.quemcriou,

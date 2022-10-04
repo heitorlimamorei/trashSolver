@@ -1,21 +1,25 @@
-import trocaRepository from '../repositories/troca.repository'
+import trocaRepository from "../repositories/troca.repository";
 interface Troca {
+  nome: string;
   descricao: string;
   photourl: string;
   quemcriou: string;
   tipo: string;
   trocado: boolean;
   listadeinteresses: string[];
+  trocaRealizadaId: string;
 }
 interface TrocaUpdate {
-    id:string;
-    descricao: string;
-    photourl: string;
-    quemcriou: string;
-    tipo: string;
-    trocado: boolean;
-    listadeinteresses: string[];
-  }
+  nome: string;
+  id: string;
+  descricao: string;
+  photourl: string;
+  quemcriou: string;
+  tipo: string;
+  trocado: boolean;
+  listadeinteresses: string[];
+  trocaRealizadaId: string;
+}
 async function getTrocas() {
   return await trocaRepository.getTrocas();
 }
@@ -34,7 +38,7 @@ async function createTroca(troca: Troca) {
 }
 async function updateTroca(troca: TrocaUpdate) {
   if (await trocaRepository.trocaExists(troca.id)) {
-    return await trocaRepository.updateTroca(troca)
+    return await trocaRepository.updateTroca(troca);
   } else {
     throw new Error("Usuario não existe");
   }
