@@ -1,14 +1,13 @@
 import Layout from '../../components/template/Layout'
-
+import ItemLista from '../../components/template/ItemLista'
 
 export default function Trocas() {
   return (
     <div className={``}>
-      <Layout titulo="Noticações" subtitulo="Aqui você vai gerenciar suas notificações">
-        <div>
-            FEED de trocas
-            
-        </div>
+      <Layout titulo="Lista de itens" subtitulo="">
+        <section className = "">
+          <ItemLista/>
+        </section>
       </Layout>
     </div>
   )
