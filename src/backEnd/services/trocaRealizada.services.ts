@@ -1,14 +1,18 @@
 import trocaRealizadaRepository from "../repositories/trocaRealizada.repository.js";
 interface TrocaRealizada {
-  criador: string;
-  localizacao: string;
-  tiposDeItens: string[];
+  emailCriador: string;
+  emailInteressado: string;
+  idDaTroca: string;
+  intemDeInteresse: string;
+  pontoDeColetaId: string;
 }
 interface TrocaRealizadaUpdate {
   id: string;
-  criador: string;
-  localizacao: string;
-  tiposDeItens: string[];
+  emailCriador: string;
+  emailInteressado: string;
+  idDaTroca: string;
+  intemDeInteresse: string;
+  pontoDeColetaId: string;
 }
 async function getTrocaRealizadas() {
   return await trocaRealizadaRepository.getTrocasRealizadas();
