@@ -5,15 +5,15 @@ import TrocaItemModel from '../../model/TrocaItemModel'
 
 export default function Trocas() {
   const [trocas, setTrocas] = useState<TrocaItemModel[]>([])
-  async function getTrocas() {
+  async function getTrocas(): Promise<TrocaItemModel[]> {
     const resp = await axios.get('/api/trocas')
     return await resp.data.map(troca => TrocaItemModel.fromJSON(troca))
   }
-  async function loadTrocas(){
+  async function loadTrocas():Promise<void>{
     const resp = await getTrocas()
     setTrocas(resp) 
   }
-  useEffect(()=>{
+  useEffect( ()=>{
     loadTrocas()
   }, [])
   return (
@@ -22,7 +22,7 @@ export default function Trocas() {
         <div>
           <ul>
           {trocas.map((troca:TrocaItemModel) => <li>
-            {troca.nome} || {troca.descricao}
+            {troca.nome} || {troca.descricao} || {troca.trocaRealizadaId}
           </li>)}
           </ul>
             
