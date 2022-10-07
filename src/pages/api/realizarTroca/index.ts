@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import realizarTrocaService from "../../../backEnd/services/trocaRealizada.services";
+import realizarTrocaService from "../../../backEnd/services/trocaRealizada.service";
 export default async function RealizarTrocaController(
   req: NextApiRequest,
   res: NextApiResponse
@@ -26,14 +26,15 @@ export default async function RealizarTrocaController(
       const realizarTroca = req.body;
 
       if (
-        (realizarTroca.id,
-        realizarTroca.criador,
-        realizarTroca.localizacao,
-        realizarTroca.tiposDeItens)
+          (realizarTroca.id,
+          realizarTroca.emailCriador,
+          realizarTroca.emailInteressado,
+          realizarTroca.idDeTroca,
+          realizarTroca.intemDeInteresse)
       ) {
         res
           .status(200)
-          .json(await realizarTrocaService.updatePonto(realizarTroca));
+          .json(await realizarTrocaService.updateTrocaRealizada(realizarTroca));
       } else {
         throw new Error("Está faltando informações obrigatorias");
       }
