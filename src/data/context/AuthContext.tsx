@@ -9,10 +9,10 @@ import {
   signInWithPopup,
   onAuthStateChanged,
 } from "firebase/auth";
-import Router from "../../../node_modules/next/router";
+import Router from "next/router";
 
 import Usuario from "../../model/Usuario";
-import Cookies from "../../../node_modules/js-cookie/index";
+import Cookies from "js-cookie";
 
 
 interface AuthContextProps {
