@@ -4,7 +4,7 @@ interface ListaTiposProps{
 }
 export default function ListaTipos(props:ListaTiposProps){
     return (
-        <ul className={`flex flex-col  w-full p-2 m-1 rounded-md items-center justify-start overflow-x-hidden overflow-y-scroll h-64`}>
+        <ul className={`flex flex-col  w-full p-2 m-1 rounded-md items-center justify-start overflow-x-hidden overflow-y-scroll h-64 ${props?.className}`}>
             {props.children}
         </ul>
     )

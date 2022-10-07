@@ -1,5 +1,5 @@
 import { trashIcon } from "../icons/Icones";
-import ProfileInput from "../template/ProfileInput";
+import ProfileInput from "./ProfileInput";
 
 interface tipoItemProps {
   texto: string;

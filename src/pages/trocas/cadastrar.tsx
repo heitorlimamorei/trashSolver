@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import FeedBackButton from '../../components/template/FeedBackButton'
-import TipoItem from '../../components/template/ItemItem'
+import TipoItem from '../../components/template/TipoITem'
 import Layout from '../../components/template/Layout'
 import ListaTipos from '../../components/template/ListaDeTipos'
 import LongTextInput from '../../components/template/LongTextInput'
@@ -72,7 +72,7 @@ export default function CadastrarTroca() {
                 className='w-full mt-1'
                 />
                 <SelecionarTipo 
-                tipo={tipo}
+                tipo={tipo ?? ''}
                 setTipo={setTipo}
                 tiposLista={tiposMock}
                 className='w-full mt-1'
