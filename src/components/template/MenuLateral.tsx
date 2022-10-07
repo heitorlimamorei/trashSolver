@@ -8,14 +8,14 @@ export default function MenuLateral(props){
     return(
         <aside  className={`
         flex flex-col
-        bg-gray-200 text-gray-700
-        dark:bg-gray-900 dark:text-gray-200
+        bg-green-800 text-gray-200
+        dark:bg-green-600 dark:text-gray-700
         `}>
             <div className={`
             flex flex-col items-center justify-center 
-            bg-gradient-to-r from-indigo-500 to-purple-800
-            h-20 w-20
-        
+            bg-gradient-to-r from-green-800 to-green-600
+            h-20 w-20 
+
             `}>
                 <Logo />
             </div>

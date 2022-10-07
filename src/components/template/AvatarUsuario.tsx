@@ -1,4 +1,4 @@
-import Link from "../../../node_modules/next/link"
+import Link from "next/link"
 import useAuth from "../../data/hook/useAuth"
 import { userAvatarDefault } from '../icons/Icones'
 interface AvatarUsuarioProps {

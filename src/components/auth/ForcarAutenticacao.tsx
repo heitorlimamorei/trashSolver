@@ -1,5 +1,5 @@
-import Image from "../../../node_modules/next/image"
-import { useRouter } from "../../../node_modules/next/router"
+import Image from "next/image"
+import { useRouter } from "next/router"
 import Loading from '../../../public/images/loading.gif'
 import useAuth from "../../data/hook/useAuth"
 export default function ForcarAutenticacao(props){
