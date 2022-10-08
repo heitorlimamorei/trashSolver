@@ -21,10 +21,11 @@ export default function Trocas() {
     <div className={``}>
       <Layout titulo="Trocas" subtitulo="Aqui você vai ver as trocas disponiveis">
         <div>
-          <ul>
-          {trocas.map((troca:TrocaItemModel) => <li>
-            {troca.nome} || {troca.descricao} || {troca.trocaRealizadaId}
+          <ul className="dark:text-gray-200">
+          {trocas.map((troca:TrocaItemModel) => <li key = {troca.id} >
+            <ItemLista Nome = {troca.nome} Descricao = {troca.descricao}/>
           </li>)}
+          
           </ul>
             
         </div>
