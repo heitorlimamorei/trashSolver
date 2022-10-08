@@ -1,5 +1,6 @@
 import Layout from '../../components/template/Layout'
 import axios from 'axios'
+import ItemLista from '../../components/template/ItemLista'
 import { useEffect, useState } from 'react'
 import TrocaItemModel from '../../model/TrocaItemModel'
 
