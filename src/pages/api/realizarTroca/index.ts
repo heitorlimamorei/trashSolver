@@ -14,7 +14,8 @@ export default async function RealizarTrocaController(
         (realizarTroca.emailCriador,
         realizarTroca.emailInteressado,
         realizarTroca.idDeTroca,
-        realizarTroca.intemDeInteresse)
+        realizarTroca.intemDeInteresse,
+        realizarTroca.pontoDeColetaId)
       ) {
         res
           .status(200)
@@ -30,7 +31,8 @@ export default async function RealizarTrocaController(
           realizarTroca.emailCriador,
           realizarTroca.emailInteressado,
           realizarTroca.idDeTroca,
-          realizarTroca.intemDeInteresse)
+          realizarTroca.intemDeInteresse,
+          realizarTroca.pontoDeColetaId)
       ) {
         res
           .status(200)

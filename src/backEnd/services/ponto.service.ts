@@ -1,11 +1,13 @@
 import pontoRepository from "../repositories/ponto.repository";
 interface Ponto {
+  nome:string;
   criador: string;
   localizacao: string;
   tiposDeItens: string[];
 }
 interface PontoUpdate {
   id: string;
+  nome:string;
   criador: string;
   localizacao: string;
   tiposDeItens: string[];

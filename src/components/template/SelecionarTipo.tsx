@@ -6,7 +6,7 @@ interface SelecionarTipoProps {
   }
   export default function SelecionarTipo(props: SelecionarTipoProps) {
     function renderizarTipos() {
-      return props.tiposLista.map((tipo, i) => {
+      return props.tiposLista?.map((tipo, i) => {
         return (
           <option value={tipo} key={i * 10}>
             {tipo}
