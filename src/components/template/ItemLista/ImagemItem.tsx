@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import profilePic from "../../.././public/83692.jpg"
+import profilePic from "../../../../public/83692.jpg"
 
 const ImagemItem =() => {
     return (

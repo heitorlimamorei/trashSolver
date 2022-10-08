@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import {ToogleIcon} from '../icons/Icones'
+import {ToogleIcon} from '../../icons/Icones'
 import React from "react"
 
 const ListaDeInteresses = (props) => {

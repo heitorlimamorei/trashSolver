@@ -1,4 +1,4 @@
-import {ChatIcon} from "../icons/Icones"
+import {ChatIcon} from "../.././icons/Icones"
 
 const BotaoChat = () => {
     return (
