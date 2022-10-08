@@ -1,4 +1,6 @@
 import trocaRealizadaRepository from "../repositories/trocaRealizada.repository";
+import trocaRepository from "../repositories/troca.repository";
+import trocaServices from "./troca.service";
 interface TrocaRealizada {
   emailCriador: string;
   emailInteressado: string;
@@ -28,7 +30,23 @@ async function deleteTrocaRealizada(id) {
   }
 }
 async function createTrocaRealizada(trocaRealizada: TrocaRealizada) {
-  return await trocaRealizadaRepository.createTrocaRealizada(trocaRealizada);
+  const id = trocaRealizada.idDaTroca;
+  if (await trocaRepository.trocaExists(id)) {
+    const troca = await trocaServices.getTrocaById(id);
+    if (!(await troca.trocado)) {
+      const resp = await trocaRealizadaRepository.createTrocaRealizada(
+        trocaRealizada
+      );
+      troca.trocado = true;
+      troca.trocaRealizadaId = resp.id;
+      await trocaServices.updateTroca(troca);
+      return await resp;
+    } else {
+      throw new Error("Esse troca está indisponivel!");
+    }
+  } else {
+    throw new Error("Troca não existe!");
+  }
 }
 async function updateTrocaRealizada(trocaRealizada: TrocaRealizadaUpdate) {
   if (await trocaRealizadaRepository.trocaRealizadaExists(trocaRealizada.id)) {
