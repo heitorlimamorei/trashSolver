@@ -23,7 +23,7 @@ export default function CadastrarTroca() {
   const [listadeinteresses, setListadeinteresses] = useState(TiposPersonalizadosModel.criarArrayPadrao())
   async function cadastrar(){
     try{
-        const cadastro = await axios.post('http://localhost:3000/api/trocas',{
+        const cadastro = await axios.post('/api/trocas',{
         trocaRealizadaId: "_",
         nome: nome,
         descricao:descricao,

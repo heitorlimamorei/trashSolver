@@ -8,7 +8,7 @@ export default async function PontoController(req: NextApiRequest, res: NextApiR
     } else if (req.method === "POST") {
       const ponto = req.body;
 
-      if ((ponto.criador, ponto.localizacao, ponto.tiposDeItens)) {
+      if ((ponto.nome, ponto.criador, ponto.localizacao, ponto.tiposDeItens)) {
         res.status(200).json(await pontoService.createPonto(ponto));
 
       } else {
@@ -17,7 +17,7 @@ export default async function PontoController(req: NextApiRequest, res: NextApiR
     } else if (req.method === "PUT") {
       const ponto = req.body;
 
-      if ((ponto.id, ponto.criador, ponto.localizacao, ponto.tiposDeItens)) {
+      if ((ponto.id, ponto.nome, ponto.criador, ponto.localizacao, ponto.tiposDeItens)) {
         res.status(200).json(await pontoService.updatePonto(ponto));
 
       } else {
