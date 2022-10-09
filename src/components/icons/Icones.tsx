@@ -169,4 +169,17 @@ export const ToogleIcon = (
   </svg>
 
 )
+export const triangle = (
+<svg 
+width="1520" 
+height="918" 
+viewBox="0 0 1520 918" 
+fill="none" 
+xmlns="http://www.w3.org/2000/svg">
+<path 
+opacity="0.5" 
+d="M1519.69 -1.3113e-05L1519.69 917.79L1.32955e-06 917.79L1519.69 -1.3113e-05Z" 
+fill="#159344"/>
+</svg>
+)
 

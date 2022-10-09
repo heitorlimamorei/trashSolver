@@ -6,6 +6,9 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    fontSize: {
+      xl9: '9rem',
+    },
     extend: {},
   },
   plugins: [],

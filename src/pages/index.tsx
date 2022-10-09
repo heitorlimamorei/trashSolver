@@ -1,10 +1,28 @@
-import Layout from '../components/template/Layout'
+import LayoutHome from '../components/template/LayoutHome'
+import {motion} from 'framer-motion'
+import ImagemHome from '../components/template/Home/ImagemHome'
+import BotaoPontoDeColeta from '../components/template/Home/BotaoPontoDeColeta'
+import TituloHome from '../components/template/Home/TituloHome'
+
+
 export default function Home() {
   return (
     <div className={``}>
-      <Layout titulo="Pagina inicial" subtitulo="Estamos construindo um admin template">
-        <h3>Conteúdo!!!</h3>
-      </Layout>
+      <LayoutHome titulo= "" subtitulo="" >
+        <div className="flex flex-row w-full h-full">
+          <div className="flex flex-col">
+            <TituloHome/>
+
+            <BotaoPontoDeColeta/>
+
+          </div>
+
+          <ImagemHome/>
+        
+          
+          
+        </div>
+      </LayoutHome>
     </div>
   )
 }
