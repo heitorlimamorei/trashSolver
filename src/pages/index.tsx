@@ -1,28 +1,25 @@
-import LayoutHome from '../components/template/LayoutHome'
-import {motion} from 'framer-motion'
-import ImagemHome from '../components/template/Home/ImagemHome'
-import BotaoPontoDeColeta from '../components/template/Home/BotaoPontoDeColeta'
-import TituloHome from '../components/template/Home/TituloHome'
+import Layout from '../components/template/Layout'
+import {menu} from '../components/icons/Icones'
 
 
 export default function Home() {
   return (
     <div className={``}>
-      <LayoutHome titulo= "" subtitulo="" >
-        <div className="flex flex-row w-full h-full">
-          <div className="flex flex-col">
-            <TituloHome/>
+      <Layout titulo = '' subtitulo = ''>
+        <nav className=' bg-green-600 flex justify-center align-center'>
 
-            <BotaoPontoDeColeta/>
-
+          <div className='w-100 h-100 flex  justify-self-center self-center '> {/* circle */}
+            <button className=" bg-green-800 text-gray-300 w-20 h-20 rounded-full flex items-center justify-center self-center -36 ">
+              {menu}
+            </button>
           </div>
 
-          <ImagemHome/>
-        
-          
-          
-        </div>
-      </LayoutHome>
+        </nav>
+      </Layout>
+
     </div>
+
+    
+
   )
 }

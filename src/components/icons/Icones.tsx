@@ -182,4 +182,19 @@ d="M1519.69 -1.3113e-05L1519.69 917.79L1.32955e-06 917.79L1519.69 -1.3113e-05Z"
 fill="#159344"/>
 </svg>
 )
+export const menu = (
+  <svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  fill="none" viewBox="0 0 24 24" 
+  strokeWidth={1.5} 
+  stroke="currentColor" 
+  className="w-12 h-12">
+    <path 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+  </svg>
+
+
+)
 
