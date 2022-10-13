@@ -16,7 +16,7 @@ interface SelecionarTipoProps {
     }
     return (
       <select
-        value={props.tipo}
+        value={props.tipo ?? ''}
         onChange={(ev) => props.setTipo(ev.target.value)}
         className={`py-2 px-4 m-2 rounded-md bg-gray-100 focus:bg-white cursor-pointer ${props.className}`}
       >
