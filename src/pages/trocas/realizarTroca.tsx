@@ -47,6 +47,7 @@ export default function RealizarTroca() {
           pontoDeColetaId: pontoDeColetaId,
         }
       );
+      router.push('/realizadas')
     } catch (err) {
       console.log(err);
     }
