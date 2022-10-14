@@ -15,7 +15,6 @@
     "js-cookie": "^3.0.1",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-circular-menu": "^2.3.7",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.6"
   },
@@ -28,5 +27,18 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.6",
     "typescript": "^4.7.4"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heitorlimamorei/trashSolver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heitorlimamorei/trashSolver/issues"
+  },
+  "homepage": "https://github.com/heitorlimamorei/trashSolver#readme"
 }
