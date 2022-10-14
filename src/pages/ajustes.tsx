@@ -2,8 +2,9 @@ import { useState } from 'react'
 import FeedBackButton from '../components/template/FeedBackButton'
 import Layout from '../components/template/Layout'
 import ProfileInput from '../components/template/ProfileInput'
-
+import baseUrl from '../model/Variaveis'
 import axios from 'axios'
+
 export default function Ajustes() {
   const [name, setName] = useState(null)
   const [salarioBruto, SetSalarioBruto] = useState(null)
@@ -13,7 +14,7 @@ export default function Ajustes() {
     salarioBruto: 12000
   })
   async function sendProfile() {
-    const resp =  await axios.post(`http://localhost:3000/api/user`, {
+    const resp =  await axios.post(`${baseUrl}/api/user`, {
       dependentesPlanoValor: 320,
 	    dependentesNumero: 1,
       name: name,
