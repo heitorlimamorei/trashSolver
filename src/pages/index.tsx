@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={``}>
       <Layout titulo = '' subtitulo = ''>
-        <MenuPie/>
+        
       </Layout>
 
     </div>
