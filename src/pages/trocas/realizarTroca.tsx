@@ -6,15 +6,19 @@ import SelecionarTipo from "../../components/template/SelecionarTipo";
 import axios from "axios";
 import useAuth from "../../data/hook/useAuth";
 import { useRouter } from "next/router";
+import useAppData from "../../data/hook/useAppData";
+import RealizarTrocaModel from "../../model/RealizarTroca";
 
 export default function RealizarTroca() {
+  const {realizarTroca} = useAppData()
   const router = useRouter();
-  const [emailDoCriador, SetEmailDoCriador] = useState<string>(null);
+  const [emailDoCriador, SetEmailDoCriador] = useState<string>(realizarTroca.quemcriou);
   const { usuario } = useAuth();
+
   const [emailInteressado, SetEmailInteressado] = useState<string>(
     usuario?.email
   );
-  const [idDeTroca, setIdDeTroca] = useState<string>(null);
+  const [idDeTroca, setIdDeTroca] = useState<string>(realizarTroca.id);
   const [itemDeInteresse, setItemDeInteresse] = useState<string>(null);
   const [pontoDeColetaId, setPontoDeColetaId] = useState<string>(null);
   const [pontoDeColeta, setPontoDeColeta] = useState<string>(
@@ -34,7 +38,7 @@ export default function RealizarTroca() {
         pontoDeColetaId: pontoDeColetaId,
       });
       const cadastro = await axios.post(
-        "https://g5bjhf-3000.preview.csb.app/api/realizarTroca",
+        "/api/realizarTroca",
         {
           emailCriador: emailDoCriador,
           emailInteressado: emailInteressado,
@@ -43,6 +47,7 @@ export default function RealizarTroca() {
           pontoDeColetaId: pontoDeColetaId,
         }
       );
+      router.push('/realizadas')
     } catch (err) {
       console.log(err);
     }
@@ -94,6 +99,7 @@ export default function RealizarTroca() {
     });
     setPontosDeColeta(nomes);
   }
+
   useEffect(() => {
     loader();
   }, [idDeTroca]);

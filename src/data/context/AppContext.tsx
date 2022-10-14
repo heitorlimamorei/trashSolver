@@ -1,8 +1,11 @@
 import { createContext, useState, useEffect} from "react";
+import RealizarTrocaModel from "../../model/RealizarTroca";
 //type Tema = "dark" | ""
 interface AppContextProps {
     tema: string;
     alternarTema: () => void;
+    realizarTroca: RealizarTrocaModel;
+    setRealizarTroca: (troca: any) => void
 }
 type AppContextProvider = {
     children:any
@@ -10,12 +13,15 @@ type AppContextProvider = {
 
 const AppContext = createContext<AppContextProps>({
     tema:"",
-    alternarTema:null
+    alternarTema:null,
+    realizarTroca: RealizarTrocaModel.realizarTrocaEmBraco(),
+    setRealizarTroca: null
 })
 
 
 export function AppContextProvider(props:AppContextProvider){
     const [tema, setTema] = useState('')
+    const [realizarTroca, setRealizarTroca] = useState(RealizarTrocaModel.realizarTrocaEmBraco());
     function alternarTema(){
         const novoTema = tema === 'dark' ? '' : 'dark'
         setTema(novoTema)
@@ -28,7 +34,9 @@ export function AppContextProvider(props:AppContextProvider){
     return (
         <AppContext.Provider value={{
             tema:tema,
-            alternarTema
+            alternarTema,
+            realizarTroca,
+            setRealizarTroca
         }}>
             {props.children}
         </AppContext.Provider>

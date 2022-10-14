@@ -9,13 +9,10 @@ import React from 'react'
 interface ItemListapProps {
   Nome: string;
   Descricao: string;
-  onhoverStart: () => void;
-  onhoverEnd: () => void;
-  condition: boolean;
-  animation: Animation;
+  trocar: () => void;
 }
 
-const ItemLista = (props) => {
+const ItemLista = (props:ItemListapProps) => {
   const [isHover, toggleHover] = React.useState(false);
   const toggleHoverMenu = () => {
     toggleHover(!isHover);
@@ -57,7 +54,7 @@ return (
       animation = {subMenuAnimate}
     />
 
-    <BotaoTroca/>
+    <BotaoTroca onClick={props.trocar}/>
 
     <BotaoChat/>
 

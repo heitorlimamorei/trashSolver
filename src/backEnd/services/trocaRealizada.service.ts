@@ -32,7 +32,7 @@ async function deleteTrocaRealizada(id) {
 async function createTrocaRealizada(trocaRealizada: TrocaRealizada) {
   const id = trocaRealizada.idDaTroca;
   if (await trocaRepository.trocaExists(id)) {
-    const troca = await trocaServices.getTrocaById(id);
+    const troca: any = await trocaServices.getTrocaById(id);
     if (!(await troca.trocado)) {
       const resp = await trocaRealizadaRepository.createTrocaRealizada(
         trocaRealizada

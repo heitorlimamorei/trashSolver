@@ -131,14 +131,6 @@ export function AuthProvider(props) {
       setCarregando(false);
     }
   }, []);
-  useEffect(() =>{
-    if(carregando){
-      setTimeout(()=>{
-        setCarregando(false)
-        Router.push('/')
-      },15000)
-    }
-  },[carregando])
   return (
     <AuthContext.Provider
       value={{
