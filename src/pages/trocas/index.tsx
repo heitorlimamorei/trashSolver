@@ -1,7 +1,7 @@
 import Layout from "../../components/template/Layout";
 import axios from "axios";
 import RealizarTrocaModel from "../../model/RealizarTroca";
-
+import BaseUrl from '../../model/Variaveis'
 import ItemLista from "../../components/template/ItemLista";
 import { useEffect, useState } from "react";
 import TrocaItemModel from "../../model/TrocaItemModel";
@@ -13,7 +13,7 @@ export default function Trocas() {
   const router = useRouter()
   const {setRealizarTroca} = useAppData();
   async function getTrocas(): Promise<TrocaItemModel[]> {
-    const resp = await axios.get("/api/trocas");
+    const resp = await axios.get(`${BaseUrl}/api/trocas`);
     return await resp.data.map((troca) => TrocaItemModel.fromJSON(troca));
   }
   async function loadTrocas(): Promise<void> {

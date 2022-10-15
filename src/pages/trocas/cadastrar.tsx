@@ -7,6 +7,7 @@ import LongTextInput from '../../components/template/LongTextInput'
 import ProfileInput from '../../components/template/ProfileInput'
 import SelecionarTipo from '../../components/template/SelecionarTipo'
 import TiposPersonalizadosModel from '../../model/TipoPersonaLizadosModel'
+import BaseUrl from '../../model/Variaveis'
 import axios from 'axios'
 import useAuth from '../../data/hook/useAuth'
 import { useRouter } from 'next/router'
@@ -23,7 +24,7 @@ export default function CadastrarTroca() {
   const [listadeinteresses, setListadeinteresses] = useState(TiposPersonalizadosModel.criarArrayPadrao())
   async function cadastrar(){
     try{
-        const cadastro = await axios.post('/api/trocas',{
+        const cadastro = await axios.post(`/api/trocas`,{
         trocaRealizadaId: "_",
         nome: nome,
         descricao:descricao,
@@ -33,7 +34,7 @@ export default function CadastrarTroca() {
         trocado: false,
         listadeinteresses:listadeinteresses.toFirebase()
     })
-    router.push('/')
+    router.push(`${BaseUrl}/trocas/`)
     } catch(err){
     console.log(err)
     }
