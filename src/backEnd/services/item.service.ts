@@ -5,6 +5,9 @@ interface Item {
   pontoId: string
   quempostou: string;
   photourl: string;
+  descricao: string;
+  coletado:boolean;
+  coletadoPor?: string;
 }
 interface ItemUpdate {
   id: string;
@@ -13,6 +16,9 @@ interface ItemUpdate {
   pontoId: string
   quempostou: string;
   photourl: string;
+  descricao: string;
+  coletado:boolean;
+  coletadoPor?: string;
 }
 async function getItems(pontoId) {
   return await itemRepository.getItems(pontoId);
@@ -32,7 +38,12 @@ async function createItem(item: Item) {
 }
 async function updateItem(item: ItemUpdate) {
   if (await itemRepository.itemExists(item.pontoId, item.id)) {
-    return await itemRepository.updateItem(item);
+    const oldItem = await getItemById(item.pontoId, item.id)
+    if(oldItem.coletado) {
+       throw new Error("Este item já está coletado")
+    } else {
+      return await itemRepository.updateItem(item);
+    }
   } else {
     throw new Error("Usuario não existe");
   }

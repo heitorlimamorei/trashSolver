@@ -39,7 +39,7 @@ async function createItem(item) {
         quempostou: item.quempostou,
         tipo: item.tipo
     });
-    return await getItemById(item.pontoId, itemFinal.id);
+    return await getItems(item.pontoId);
 }
 async function deleteItem(pontoId:string, itemId:string){
     const itemRef = doc(db, `pontosDeColeta/${pontoId}/itens/${itemId}`);
@@ -47,9 +47,9 @@ async function deleteItem(pontoId:string, itemId:string){
     return await getItems(pontoId)
 }
 async function updateItem(item){
-    const itemRef = doc(db, `pontosDeColeta/${item.pontoId}/itens/${item.itemId}`)
+    const itemRef = doc(db, `pontosDeColeta/${item.pontoId}/itens/${item.id}`)
     const docRef = await updateDoc(itemRef, item)
-    return await getItemById(item.pontoId, itemRef.id)
+    return await getItems(item.pontoId)
 }
 async function itemExists(pontoId:string, itemId:string){
     const docRef = doc(db, `pontosDeColeta/${pontoId}/itens/${itemId}`)
