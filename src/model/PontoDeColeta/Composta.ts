@@ -163,6 +163,21 @@ export default class PontoDeColetaCompostaModel {
     );
     return this.#carregarItemsViaArrayInterno(await resp.data);
   }
+  async postar(item): Promise<PontoDeColetaCompostaModel> {
+    const resp = await axios.post(
+      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`,
+      {
+        nome: item.nome,
+        tipo: item.tipo,
+        pontoId: item.pontoId,
+        quempostou: item.quempostou,
+        photourl: item.photourl,
+        descricao: item.descricao,
+        coletado: false
+      }
+    );
+    return this.#carregarItemsViaArrayInterno(await resp.data);
+  }
   async deletar(id: string): Promise<PontoDeColetaCompostaModel> {
     const resp = await axios.delete(
       `http://localhost:3000/api/pontodecoleta/${this.#id}/itens/${id}`
