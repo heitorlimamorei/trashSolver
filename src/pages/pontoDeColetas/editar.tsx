@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/template/Layout";
+import useAppData from "../../data/hook/useAppData";
 import useAuth from "../../data/hook/useAuth";
-import PontoDeColetaCompostaModel from "../../model/PontoDeColeta/Composta";
 
 export default function EditarPontoDeColeta() {
-  const [pontoDeColeta, setPontoDeColeta] = useState(
-    PontoDeColetaCompostaModel.emBraco()
-  );
+  const {pontoDeColeta, setPontoDeColeta} = useAppData();
   const {usuario} = useAuth()
-  const idMock = "HGTEvRTcBaQcwc78iLN0";
-  async function loader() {
-    setPontoDeColeta(await PontoDeColetaCompostaModel.getById(idMock));
-  }
-  useEffect(() => {
-    loader();
-  }, []);
   function RenderTest() {
     return pontoDeColeta.listaDeItens.filter((item) => !item.coletado).map((item) => {
       return (
@@ -24,6 +15,7 @@ export default function EditarPontoDeColeta() {
           <h3>{item.quempostou}</h3>
           <button onClick={async () => setPontoDeColeta(await pontoDeColeta.deletar(item.id))}>Deletar</button>
           <button onClick={async () => setPontoDeColeta(await pontoDeColeta.coletar(item.id, usuario.email))} className="ml-1">Coletar</button>
+          
         </li>
       );
     });
