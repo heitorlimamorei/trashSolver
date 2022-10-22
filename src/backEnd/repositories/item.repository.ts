@@ -30,14 +30,18 @@ async function createItem(item) {
         db,
         `pontosDeColeta/${item.pontoId}/itens` // os itens terão que ter a propriedade pontoId
     );
-    const itemRef  = await addDoc(itemsRef, item)
     const itemFinal = await addDoc(itemsRef, {
         pontoId : item.pontoId,
-        datadepostagem: new Date(),
+        datadepostagem: item.datadepostagem,
         nome: item.nome,
         photourl: item.photourl,
         quempostou: item.quempostou,
-        tipo: item.tipo
+        tipo: item.tipo,
+        coletado: item.coletado,
+        descricao: item.descricao,
+        dataDaColeta: item.dataDaColeta,
+        coletadoPor: item.coletadoPor
+
     });
     return await getItems(item.pontoId);
 }

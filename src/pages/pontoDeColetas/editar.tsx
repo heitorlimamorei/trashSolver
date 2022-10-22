@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Layout from "../../components/template/Layout";
 import useAppData from "../../data/hook/useAppData";
@@ -28,6 +29,9 @@ export default function EditarPontoDeColeta() {
           <h2>Localização: {pontoDeColeta.localizacao}</h2>
         </div>
         <div>{RenderTest()}</div>
+        <Link href={`cadastrar`}>
+        <button>Cadastrar novo item</button>
+        </Link>
       </Layout>
     </div>
   );
