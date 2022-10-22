@@ -142,6 +142,25 @@ export default class PontoDeColetaCompostaModel {
       items
     );
   }
+  async postar(item): Promise<PontoDeColetaCompostaModel> {
+    const resp = await axios.post(
+      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`,
+      {
+        nome: item.nome,
+        tipo: item.tipo,
+        datadepostagem:  `${new Date().getDate()}/${
+          new Date().getMonth() + 1
+        }/${new Date().getFullYear()}`,
+        pontoId: item.pontoId,
+        quempostou: item.quempostou,
+        photourl: item.photourl,
+        descricao: item.descricao,
+        coletado: false,
+        coletadoPor: "",
+      }
+    );
+    return this.#carregarItemsViaArrayInterno(await resp.data);
+  }
   async coletar(id: string, coletadoPor): Promise<PontoDeColetaCompostaModel> {
     let item: ItemPromisse = this.#listaDeItens.find((it) => it.id === id);
     const resp = await axios.put(

@@ -35,7 +35,7 @@ export default function Trocas() {
       >
         <div>
           <ul className="dark:text-gray-200">
-            {trocas.map((troca: TrocaItemModel) => (
+            {trocas.filter(troca => !troca.trocado).map((troca: TrocaItemModel) => (
               <li key={troca.id}>
                 <ItemLista
                   Nome={troca.nome}
