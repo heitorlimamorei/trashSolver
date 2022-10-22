@@ -6,13 +6,14 @@ import FeedBackButton from "../../components/template/FeedBackButton";
 import useAppData from "../../data/hook/useAppData";
 import RealizarTrocaModel from  "../../model/RealizarTroca";
 import TrocaRealizada from "../../components/template/TrocaRealizada";
+import baseUrl from "../../model/Variaveis";
 export default function Realizadas() {
 
   const {realizarTroca} = useAppData()
   const [pesquisaId, setPesquisaId] = useState<string>(realizarTroca.id)
   const [trocaRealizada, setTrocaRealizada] = useState(realizarTroca)
   async function pesquisarTroca(): Promise<void> {
-    const resp = await axios.get(`http://localhost:3000/api/realizarTroca/${pesquisaId}`)
+    const resp = await axios.get(`${baseUrl}/api/realizarTroca/${pesquisaId}`)
     setTrocaRealizada(await RealizarTrocaModel.fromRealizarTrocaAPI((await resp.data)))
   }
   

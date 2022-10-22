@@ -1,4 +1,5 @@
 import axios from 'axios';
+import baseUrl from './Variaveis';
 interface TrocaRealizadaRespProps {
   id: string;
   emailCriador: string;
@@ -40,7 +41,7 @@ export default class RealizarTrocaModel {
     )
   }
   static async fromRealizarTrocaAPI(trocaRealizada:TrocaRealizadaRespProps){
-    const trocaResp = await axios.get(`http://localhost:3000/api/trocas/${trocaRealizada.idDaTroca}`)
+    const trocaResp = await axios.get(`${baseUrl}/api/trocas/${trocaRealizada.idDaTroca}`)
     const trocaData = await trocaResp.data
     return new RealizarTrocaModel(
       trocaRealizada.id,
@@ -66,10 +67,10 @@ export default class RealizarTrocaModel {
   get pontoDeColetaId():string{
     return this.#pontoDeColetaId;
   }
- async getPontosDeColetaData(): Promise<PontoDeColetaData> {
-  const resp = await axios.get(`http://localhost:3000/api/pontodecoleta/${this.#pontoDeColetaId}`)
-  return await resp.data
-  }
+  async getPontosDeColetaData(): Promise<PontoDeColetaData> {
+    const resp = await axios.get(`${baseUrl}/api/pontodecoleta/${this.#pontoDeColetaId}`)
+    return await resp.data
+    }
   get interessado(): string {
     return this.#interessado;
   }

@@ -8,7 +8,8 @@ export default class PontoDeColetaBaseModel {
         this.#id = id;
         this.#nome = nome;
         this.#criador = criador;
-        this.#localizacao = localizacao
+        this.#localizacao = localizacao;
+        this.#tiposDeItens = tiposDeItens
     }
     static EmBranco(){
         return new PontoDeColetaBaseModel("","","","", [""])

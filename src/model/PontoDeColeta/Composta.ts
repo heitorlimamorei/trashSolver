@@ -1,4 +1,5 @@
 import PontoDeColetaItemModel from "./PontoItem";
+import baseUrl from "../Variaveis";
 import axios from "axios";
 interface PontoPromisse {
   id: string;
@@ -81,11 +82,11 @@ export default class PontoDeColetaCompostaModel {
   }
   static async getById(id: string): Promise<PontoDeColetaCompostaModel> {
     const PontoResp = await axios.get(
-      `http://localhost:3000/api/pontodecoleta/${id}`
+      `${baseUrl}/api/pontodecoleta/${id}`
     );
     const PontoData: PontoPromisse = await PontoResp.data;
     const ItensResp = await axios.get(
-      `http://localhost:3000/api/pontodecoleta/${id}/itens`
+      `${baseUrl}/api/pontodecoleta/${id}/itens`
     );
     const ItensData: ItemPromisse[] = await ItensResp.data;
     let itensNormalizados = this.staticItensFromApi(ItensData);
@@ -100,11 +101,11 @@ export default class PontoDeColetaCompostaModel {
   }
   async loadPontoDeColeta(): Promise<PontoDeColetaCompostaModel> {
     const PontoResp = await axios.get(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}`
+      `${baseUrl}/api/pontodecoleta/${this.#id}`
     );
     const PontoData: PontoPromisse = await PontoResp.data;
     const ItensResp = await axios.get(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`
+      `${baseUrl}/api/pontodecoleta/${this.#id}/itens`
     );
     const ItensData: ItemPromisse[] = await ItensResp.data;
     let itensNormalizados = this.itensFromApi(ItensData);
@@ -119,7 +120,7 @@ export default class PontoDeColetaCompostaModel {
   }
   async loadItens(): Promise<PontoDeColetaCompostaModel> {
     const ItensResp = await axios.get(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`
+      `${baseUrl}/api/pontodecoleta/${this.#id}/itens`
     );
     const ItensData: ItemPromisse[] = await ItensResp.data;
     let itensNormalizados = this.itensFromApi(ItensData);
@@ -144,7 +145,7 @@ export default class PontoDeColetaCompostaModel {
   }
   async postar(item): Promise<PontoDeColetaCompostaModel> {
     const resp = await axios.post(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`,
+      `${baseUrl}/api/pontodecoleta/${this.#id}/itens`,
       {
         nome: item.nome,
         tipo: item.tipo,
@@ -164,7 +165,7 @@ export default class PontoDeColetaCompostaModel {
   async coletar(id: string, coletadoPor): Promise<PontoDeColetaCompostaModel> {
     let item: ItemPromisse = this.#listaDeItens.find((it) => it.id === id);
     const resp = await axios.put(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`,
+      `${baseUrl}/api/pontodecoleta/${this.#id}/itens`,
       {
         id: item.id,
         nome: item.nome,
@@ -182,24 +183,9 @@ export default class PontoDeColetaCompostaModel {
     );
     return this.#carregarItemsViaArrayInterno(await resp.data);
   }
-  async postar(item): Promise<PontoDeColetaCompostaModel> {
-    const resp = await axios.post(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens`,
-      {
-        nome: item.nome,
-        tipo: item.tipo,
-        pontoId: item.pontoId,
-        quempostou: item.quempostou,
-        photourl: item.photourl,
-        descricao: item.descricao,
-        coletado: false
-      }
-    );
-    return this.#carregarItemsViaArrayInterno(await resp.data);
-  }
   async deletar(id: string): Promise<PontoDeColetaCompostaModel> {
     const resp = await axios.delete(
-      `http://localhost:3000/api/pontodecoleta/${this.#id}/itens/${id}`
+      `${baseUrl}/api/pontodecoleta/${this.#id}/itens/${id}`
     );
     return this.#carregarItemsViaArrayInterno(await resp.data);
   }
