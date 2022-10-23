@@ -7,6 +7,7 @@ const firebaseConfig = {
   storageBucket: "trash-solver.appspot.com",
   messagingSenderId: "912317838407",
   appId: "1:912317838407:web:eb86ffbe1d7ff50148ed62",
+
 };
 
 const app = initializeApp(firebaseConfig);
