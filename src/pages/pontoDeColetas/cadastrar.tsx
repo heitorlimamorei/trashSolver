@@ -65,7 +65,7 @@ export default function Cadastrar() {
         <FeedBackButton 
         text="Cadastrar item"
         onClick={async () => await cadastrarItem()}
-        className={`w-1/6 py-4 m-2 text-white`}
+        className={`w-full py-4 mt-2 text-white`}
         />
       </Layout>
     </div>

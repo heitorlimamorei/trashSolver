@@ -15,7 +15,7 @@ export default function Template(props:TemplateProps){
         <ForcarAutenticacao>
             <div className={` ${tema} flex h-screen w-screen `}>
             <MenuLateral />
-            <div className={`flex flex-col w-full p-7 bg-green-500 dark:bg-green-500 `}>
+            <div className={`flex flex-col w-full p-7 bg-green-500 dark:bg-green-800 `}>
             <Cabecalho titulo={props.titulo}  subtitulo={props.subtitulo}/>
             <Conteudo>
                 {props.children}

@@ -14,6 +14,7 @@ export default function SelecionarPonto(props: SelecionarPontoProps) {
      mb-2 mt-2 
      bg-gray-100 rounded-md
      cursor-pointer
+     shadow-xl
     `}
     >
       <div>

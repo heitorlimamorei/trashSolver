@@ -13,7 +13,8 @@ export default function MenuLateral(props){
         `}>
             <div className={`
             flex flex-col items-center justify-center 
-            bg-gradient-to-r from-green-800 to-green-600
+            bg-gradient-to-l from-green-800 to-green-600
+            dark:bg-gradient-to-r dark:from-green-800 dark:to-green-600
             h-20 w-20 
 
             `}>

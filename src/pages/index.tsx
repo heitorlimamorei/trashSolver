@@ -1,27 +1,14 @@
 import LayoutHome from '../components/template/LayoutHome'
-import {motion} from 'framer-motion'
-import ImagemHome from '../components/template/Home/ImagemHome'
-import BotaoPontoDeColeta from '../components/template/Home/BotaoPontoDeColeta'
-import TituloHome from '../components/template/Home/TituloHome'
-
+import BotaoHome from '../components/template/Home/BotaoHome'
+import {ponto} from '../components/icons/Icones'
 
 export default function Home() {
   return (
     <div className={``}>
-      <LayoutHome titulo= "" subtitulo="" >
-        <div className="flex flex-row w-full h-full">
-          <div className="flex flex-col">
-            <TituloHome/>
-
-            <BotaoPontoDeColeta/>
-
-          </div>
-
-          <ImagemHome/>
-        
-          
-          
-        </div>
+      <LayoutHome titulo= "Home" subtitulo="Bem-Vindo ao TrashSolver" >
+        <div className="w-full h-full flex flex-row">
+          <BotaoHome Nome='Ponto de Coleta' icon={ponto}/>
+        </div>        
       </LayoutHome>
     </div>
   )

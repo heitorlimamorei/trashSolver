@@ -14,8 +14,9 @@ export default function EditarPontoDeColeta() {
           <h1>{item.nome}</h1>
           <p>{item.descricao}</p>
           <h3>{item.quempostou}</h3>
-          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.deletar(item.id))}>Deletar</button>
-          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.coletar(item.id, usuario.email))} className="ml-1">Coletar</button>
+          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.deletar(item.id))}
+          className='bg-red-400 rounded-xl m-2 p-2'>Deletar</button>
+          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.coletar(item.id, usuario.email))} className="bg-green-500 rounded-xl p-2 ml-2">Coletar</button>
           
         </li>
       );
@@ -25,12 +26,12 @@ export default function EditarPontoDeColeta() {
     <div className={``}>
       <Layout titulo="Edite" subtitulo="">
         <div>
-          <h1>{pontoDeColeta.nome}</h1>
-          <h2>Localização: {pontoDeColeta.localizacao}</h2>
+          <h1 className="text-xl font-bold">{pontoDeColeta.nome}</h1>
+          <h2 className='font-bold'>Localização: {pontoDeColeta.localizacao}</h2>
         </div>
         <div>{RenderTest()}</div>
         <Link href={`cadastrar`}>
-        <button>Cadastrar novo item</button>
+        <button className='bg-green-500 p-3 m-8 rounded-xl'>Cadastrar novo item</button>
         </Link>
       </Layout>
     </div>
