@@ -8,6 +8,7 @@ interface evento {
     tipo:string;
     realizadoPor:string;
     data?: any;
+    descricao: string;
 }
 async function getHistorico(pontoId){
     return await historicoRepository.getHistorico(pontoId)

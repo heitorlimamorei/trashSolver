@@ -7,6 +7,7 @@ interface evento {
     tipo:string;
     realizadoPor:string;
     data?: any;
+    descricao:string
 }
 export default async function HisoryController(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -20,7 +21,8 @@ export default async function HisoryController(req: NextApiRequest, res: NextApi
             evento.tipo,
             (
                 evento.itemId || evento.trocaId
-            )  
+            ),
+            evento.descricao
         ){
             res.status(200).json(await historicoService.createEvento(evento));
         } else {
