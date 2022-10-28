@@ -13,6 +13,7 @@ export default function EditarPontoDeColeta() {
     return pontoDeColeta.listaDeItens.filter((item) => !item.coletado).map((item) => {
       return (
         <Item
+        key={item.id}
         nome={item.nome}
         quempostou={item.quempostou}
         descricao={item.descricao}
