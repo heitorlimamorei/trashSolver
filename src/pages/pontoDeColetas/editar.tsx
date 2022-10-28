@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Layout from "../../components/template/Layout";
+import Item from "../../components/template/PontoDeColetas/Item";
 import useAppData from "../../data/hook/useAppData";
 import useAuth from "../../data/hook/useAuth";
 
@@ -10,15 +11,13 @@ export default function EditarPontoDeColeta() {
   function RenderTest() {
     return pontoDeColeta.listaDeItens.filter((item) => !item.coletado).map((item) => {
       return (
-        <li key={item.id}>
-          <h1>{item.nome}</h1>
-          <p>{item.descricao}</p>
-          <h3>{item.quempostou}</h3>
-          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.deletar(item.id))}
-          className='bg-red-400 rounded-xl m-2 p-2'>Deletar</button>
-          <button onClick={async () => setPontoDeColeta(await pontoDeColeta.coletar(item.id, usuario.email))} className="bg-green-500 rounded-xl p-2 ml-2">Coletar</button>
-          
-        </li>
+        <Item
+        nome={item.nome}
+        quempostou={item.quempostou}
+        descricao={item.descricao}
+        deletar={async () => setPontoDeColeta(await pontoDeColeta.deletar(item.id))}
+        coletar={async () => setPontoDeColeta(await pontoDeColeta.coletar(item.id, usuario.email))}
+        />
       );
     });
   }

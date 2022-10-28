@@ -1,5 +1,6 @@
 import trocaRealizadaRepository from "../repositories/trocaRealizada.repository";
 import trocaRepository from "../repositories/troca.repository";
+import historicoService from "./historico.service";
 import trocaServices from "./troca.service";
 interface TrocaRealizada {
   emailCriador: string;
