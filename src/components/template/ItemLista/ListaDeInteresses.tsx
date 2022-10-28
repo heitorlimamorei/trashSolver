@@ -6,9 +6,9 @@ import React from "react"
 const ListaDeInteresses = (props) => {
     return (
         <motion.div
-            className="h-1/6"
-            onHoverStart={props.onHoverStart}
-            onHoverEnd={props.onHoverEnd}>
+            className="h- col-span-8 row-end-7"
+            onClick={props.onHoverStart}
+            onCli={props.onHoverEnd}>
             
             <div className="flex flex-row">
                 <a className="text-sm m-1 mt-3">Lista de Interesses</a>
@@ -16,20 +16,22 @@ const ListaDeInteresses = (props) => {
             </div>
 
             <motion.div
-              className="bg-green-600 rounded-xl m-2"
+              className="bg-indigo-50 rounded-xl m-2"
               initial="exit"
               animate={props.condition ? "enter" : "exit"}
               variants={props.animation}
             >
-              <div className="sub-menu-container">
+              <div className="sub-menu-container w-full p-2">
                 <ul>
-                    <li>{props.listaInteresses}</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>{props.listaInteresses}</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>aaaaaaaaaaaaaa</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
                 </ul>
               </div>
             </motion.div>

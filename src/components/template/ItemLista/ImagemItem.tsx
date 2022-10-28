@@ -3,7 +3,9 @@ import profilePic from "../../../../public/83692.jpg"
 
 const ImagemItem =() => {
     return (
-        <Image src={profilePic}  alt = "Imagem do item" className=" row-span-1 w-full h-full rounded-l-xl "/>
+        <div>
+            <Image src={profilePic}  alt = "Imagem do item" className=' w-36git push h-full rounded-l-x'/>
+        </div>
     )
 }
 
