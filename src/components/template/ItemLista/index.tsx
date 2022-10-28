@@ -41,15 +41,18 @@ const ItemLista = (props:ItemListapProps) => {
     };
 return (
 
-  <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} className="bg-indigo-50 shadow-xl text-gray-900 dark:bg-gray-300 rounded-xl  flex w-100 h-1/6 my-4 dark:text-gray-900">
+  <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]}} className="bg-indigo-50 shadow-xl text-gray-900 dark:bg-gray-300 rounded-xl  flex flex-col md:3/6 xl:w-2/6  w-full  h-1/6 my-4 dark:text-gray-900">
 
     <ImagemItem/>
+    
 
     <ConteudoItem Nome ={props.Nome} Descricao = {props.Descricao} />
+    
+    <div className='flex flex-row'>
+      <BotaoTroca onClick={props.trocar}/>
 
-    <BotaoTroca onClick={props.trocar}/>
-
-    <BotaoChat/>
+      <BotaoChat/>
+    </div>
 
     <ListaDeInteresses 
       onHoverStart = {toggleHoverMenu} 

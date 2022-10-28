@@ -6,7 +6,7 @@ import React from "react"
 const ListaDeInteresses = (props) => {
     return (
         <motion.div
-            className="h- col-span-8 row-end-7"
+            className=""
             onClick={props.onHoverStart}
             onCli={props.onHoverEnd}>
             

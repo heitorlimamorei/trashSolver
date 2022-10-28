@@ -1,2 +1,2 @@
-const baseUrl = 'https://3000-heitorlimam-trashsolver-a09v0995e2f.ws-us73.gitpod.io'
+const baseUrl = 'http://localhost:3000/'
 export default baseUrl
