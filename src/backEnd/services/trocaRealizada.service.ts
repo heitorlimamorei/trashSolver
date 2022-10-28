@@ -41,6 +41,13 @@ async function createTrocaRealizada(trocaRealizada: TrocaRealizada) {
       troca.trocado = true;
       troca.trocaRealizadaId = resp.id;
       await trocaServices.updateTroca(troca);
+      await historicoService.createEvento({
+        trocaId: id,
+        pontoId: resp.pontoDeColetaId,
+        tipo: "troca",
+        realizadoPor: resp.emailInteressado,
+        descricao: `Troca entre ${resp.emailCriador} e ${resp.emailInteressado}`
+      })
       return await resp;
     } else {
       throw new Error("Esse troca está indisponivel!");
