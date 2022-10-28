@@ -1,4 +1,5 @@
 import itemRepository from "../repositories/item.repository";
+import historicoRepository from "./historico.service"
 interface Item {
   nome: string;
   tipo: string;
@@ -34,7 +35,15 @@ async function deleteItem(pontoId, itemId) {
   }
 }
 async function createItem(item: Item) {
-  return await itemRepository.createItem(item);
+  let novoItem = await itemRepository.createItem(item);
+  await historicoRepository.createEvento({
+    itemId: novoItem[1].id,
+    pontoId: item.pontoId,
+    tipo: "post",
+    realizadoPor: item.quempostou,
+    descricao: `Postagem do item ${item.nome} no ponto de coleta ${item.pontoId}`
+  })
+  return novoItem[0]
 }
 async function updateItem(item: ItemUpdate) {
   if (await itemRepository.itemExists(item.pontoId, item.id)) {
@@ -42,7 +51,15 @@ async function updateItem(item: ItemUpdate) {
     if(oldItem.coletado) {
        throw new Error("Este item já está coletado")
     } else {
-      return await itemRepository.updateItem(item);
+      let itemUpdated = await itemRepository.updateItem(item)
+      await historicoRepository.createEvento({
+        itemId: itemUpdated[1].id,
+        pontoId: item.pontoId,
+        tipo: "coleta",
+        realizadoPor: item.quempostou,
+        descricao: `Coleta do item ${item.nome} no ponto de coleta ${item.pontoId}`
+      })
+      return itemUpdated[0];
     }
   } else {
     throw new Error("Usuario não existe");

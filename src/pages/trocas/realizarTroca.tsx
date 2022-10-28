@@ -10,7 +10,7 @@ import useAppData from "../../data/hook/useAppData";
 import RealizarTrocaModel from "../../model/RealizarTroca";
 
 export default function RealizarTroca() {
-  const {realizarTroca} = useAppData()
+  const {realizarTroca, setRealizarTroca} = useAppData()
   const router = useRouter();
   const [emailDoCriador, SetEmailDoCriador] = useState<string>(realizarTroca.quemcriou);
   const { usuario } = useAuth();
@@ -47,7 +47,10 @@ export default function RealizarTroca() {
           pontoDeColetaId: pontoDeColetaId,
         }
       );
-      router.push('/realizadas')
+      setRealizarTroca(
+       await RealizarTrocaModel.fromRealizarTrocaAPI((await cadastro.data))
+      )
+      router.push('realizadas')
     } catch (err) {
       console.log(err);
     }

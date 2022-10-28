@@ -1,8 +1,8 @@
-import Cabecalho from "./Cabecalho";
-import MenuLateral from "./MenuLateral";
-import Conteudo from './Conteudo'
-import useAppData from "../../data/hook/useAppData";
-import ForcarAutenticacao from "../auth/ForcarAutenticacao";
+import Cabecalho from "../Cabecalho";
+import MenuLateral from "../MenuLateral";
+import Conteudo from '../Conteudo'
+import useAppData from "../../../data/hook/useAppData";
+import ForcarAutenticacao from "../../auth/ForcarAutenticacao";
 interface TemplateProps {
     titulo: string;
     subtitulo: string;

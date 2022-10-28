@@ -33,7 +33,7 @@ export default function CadastrarTroca() {
         trocado: false,
         listadeinteresses:listadeinteresses.toFirebase()
     })
-    router.push('/')
+    router.push('/trocas')
     } catch(err){
     console.log(err)
     }

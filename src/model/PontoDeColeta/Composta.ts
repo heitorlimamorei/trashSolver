@@ -160,7 +160,7 @@ export default class PontoDeColetaCompostaModel {
           dataDaColeta: "_",
           coletadoPor: "_",
         }
-      );
+      )
       return this.#carregarItemsViaArrayInterno(await resp.data);
   }
   async coletar(id: string, coletadoPor): Promise<PontoDeColetaCompostaModel> {

@@ -24,7 +24,7 @@ export default function TrocaRealizada(props:TrocaRealizadaComponentProps){
     const {trocaRealizada} = props
     const [pontoDeColetaData, setPontoDeColetaData] = useState<PontoDeColetaData>(pontoDeColetaMock)
     async function getPontoDeColetaData() {
-       let resp = await trocaRealizada.getPontosDeColetaData()
+       let resp = await trocaRealizada.getPontosDeColetaData();
        setPontoDeColetaData(resp)
     }
     useEffect(() => {
