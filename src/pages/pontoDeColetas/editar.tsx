@@ -25,15 +25,19 @@ export default function EditarPontoDeColeta() {
   }
   return pontoDeColeta.id ? (
     <div className={``}>
-      <Layout titulo="Edite" subtitulo="">
-        <div>
-          <h1 className="text-xl font-bold">{pontoDeColeta.nome}</h1>
-          <h2 className='font-bold'>Localização: {pontoDeColeta.localizacao}</h2>
+      <Layout titulo="" subtitulo="">
+        <div className="dark:text-white flex flex-col">
+          <div>
+            <h1 className="text-[30px] font-bold mt-2">{pontoDeColeta.nome}</h1>
+            <h2 className=''><span className="font-bold">Localização:</span> {pontoDeColeta.localizacao}</h2>
+          </div>
+
+          <Link href={`cadastrar`}>
+          <button className='bg-green-500 p-3 m-1 rounded-xl w-2/12 self-end'>Cadastrar novo item</button>
+          </Link>
+
+          <div>{RenderTest()}</div>
         </div>
-        <div>{RenderTest()}</div>
-        <Link href={`cadastrar`}>
-        <button className='bg-green-500 p-3 m-8 rounded-xl'>Cadastrar novo item</button>
-        </Link>
       </Layout>
     </div>
   ) : (
@@ -57,5 +61,6 @@ export default function EditarPontoDeColeta() {
         </div>
       </Layout>
     </div>
+    
   )
 }

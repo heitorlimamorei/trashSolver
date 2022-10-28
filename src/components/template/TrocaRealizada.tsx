@@ -33,19 +33,19 @@ export default function TrocaRealizada(props:TrocaRealizadaComponentProps){
     return trocaRealizada.id ? (
         <div className={`flex flex-col w-full  m-2 bg-gray-100 p-2 rounded-md`}>
             <div>
-                <h2>{trocaRealizada.nome}</h2>
+                <h2 className={`text-[30px]`}>{trocaRealizada.nome}</h2>
             </div>
-            <div>
+            <div className="my-2">
                <p>
-                {trocaRealizada.descricao}
+                <span className="font-bold text-[20px]">Descrição: </span>{trocaRealizada.descricao}
                </p>
             </div>
-            <div>
-                <h2>Criador - {trocaRealizada.quemcriou}</h2>
-                <h2>Interessado - {trocaRealizada.interessado}</h2>
+            <div className="my-2">
+                <h2 className={`mb-2`}><span className="font-bold  text-[20px]">Criador - </span>{trocaRealizada.quemcriou}</h2>
+                <h2><span className="font-bold  text-[20px]">Interessado - </span>{trocaRealizada.interessado}</h2>
             </div>
             <div className={`flex flex-col`}>
-               <h2>Localização</h2>
+               <h2 className='font-bold text-[20px]'>Localização</h2>
                <div>
                 {pontoDeColetaData.nome}
                 <span>{" "}</span>

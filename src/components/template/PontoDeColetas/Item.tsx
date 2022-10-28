@@ -1,3 +1,6 @@
+import {lixo} from '../../icons/Icones'
+import {check} from '../../icons/Icones'
+
 interface PontoDeColetaItemProps {
   nome: string;
   descricao: string;
@@ -8,26 +11,28 @@ interface PontoDeColetaItemProps {
 }
 export default function Item(props: PontoDeColetaItemProps) {
   return (
-    <li>
-      <h1>{props.nome}</h1>
-      <p>{props.descricao}</p>
-      <h3>{props.quempostou}</h3>
-      <button
-        onClick={async () =>
-           await props.deletar()
-        }
-        className="bg-red-400 rounded-xl m-2 p-2"
-      >
-        Deletar
-      </button>
-      <button
-        onClick={async () =>
-            await props.coletar()
-        }
-        className="bg-green-500 rounded-xl p-2 ml-2"
-      >
-        Coletar
-      </button>
+    <li className="bg-indigo-50 rounded-xl  p-2 list-none capitalize mt-5 dark:bg-gray-600">
+      <h1 className='text-[20px] font-bold'>{props.nome}</h1>
+      <p className='my-2'><span className='font-bold'>Descrição: </span>{props.descricao}</p>
+      <h3><span className='font-bold'>Criador: </span>{props.quempostou}</h3>
+      <div className='flex flex-row mt-4'>
+        <button
+          onClick={async () =>
+            await props.deletar()
+          }
+          className="bg-red-400 rounded-xl h-10 mx-2 p-2"
+        >
+          {lixo}
+        </button>
+        <button
+          onClick={async () =>
+              await props.coletar()
+          }
+          className="bg-green-500 rounded-xl w-9 h-10 p-2 mb-2 ml-2"
+        >
+          {check}
+        </button>
+      </div>
     </li>
   );
 }

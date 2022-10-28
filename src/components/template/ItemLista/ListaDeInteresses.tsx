@@ -16,22 +16,14 @@ const ListaDeInteresses = (props) => {
             </div>
 
             <motion.div
-              className="bg-indigo-50 rounded-xl m-2"
+              className="bg-indigo-50 dark:bg-gray-600 rounded-xl m-2"
               initial="exit"
               animate={props.condition ? "enter" : "exit"}
               variants={props.animation}
             >
               <div className="sub-menu-container w-full p-2">
                 <ul>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>{props.listaInteresses}</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>aaaaaaaaaaaaaa</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
-                    <li className='bg-gray-300 rounded-xl w-full m-2 px-2 py-1'>a</li>
+                    <li className='bg-gray-500 rounded-xl w-full m-2 px-2 py-1'>{props.listaInteresses}</li>
                 </ul>
               </div>
             </motion.div>
