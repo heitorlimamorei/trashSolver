@@ -50,6 +50,7 @@ export default function Trocas() {
                       troca.quemcriou
                     )
                   }
+                  listaInteresses={troca.listadeinteresses}
                 />
               </li>
             ))}

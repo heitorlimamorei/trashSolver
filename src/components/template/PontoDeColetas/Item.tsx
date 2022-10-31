@@ -11,7 +11,7 @@ interface PontoDeColetaItemProps {
 }
 export default function Item(props: PontoDeColetaItemProps) {
   return (
-    <li className="bg-indigo-50 rounded-xl  p-2 list-none capitalize mt-5 dark:bg-gray-600">
+    <li className="bg-indigo-50 rounded-xl px-3 py-3 list-none capitalize mt-5 dark:bg-gray-600">
       <h1 className='text-[20px] font-bold'>{props.nome}</h1>
       <p className='my-2'><span className='font-bold'>Descrição: </span>{props.descricao}</p>
       <h3><span className='font-bold'>Criador: </span>{props.quempostou}</h3>
