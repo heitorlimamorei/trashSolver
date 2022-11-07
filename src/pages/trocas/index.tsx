@@ -1,5 +1,6 @@
 import Layout from "../../components/template/Layout";
 import axios from "axios";
+import baseUrl from "../../model/Variaveis";
 import RealizarTrocaModel from "../../model/RealizarTroca";
 
 import ItemLista from "../../components/template/ItemLista";
@@ -35,7 +36,7 @@ export default function Trocas() {
         subtitulo="Aqui você vai ver as trocas disponiveis"
       >
         <div>
-          <Banner/>
+          <Banner url={`${baseUrl}/trocas/cadastrar`} text="Cadastre seu Item Aqui!"/>
           <ul className="dark:text-gray-200">
             {trocas.filter(troca => !troca.trocado).map((troca: TrocaItemModel) => (
               <li key={troca.id} className="flex flex-col justify-center items-center">
