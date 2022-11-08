@@ -39,7 +39,7 @@ export default function Trocas() {
           <Banner url={`${baseUrl}/trocas/cadastrar`} text="Cadastre seu Item Aqui!"/>
           <ul className="dark:text-gray-200">
             {trocas.filter(troca => !troca.trocado).map((troca: TrocaItemModel) => (
-              <li key={troca.id} className="flex flex-col justify-center items-center">
+              <li key={troca.id} className="flex flex-row justify-center items-center">
                 <ItemLista
                   Nome={troca.nome}
                   Descricao={troca.descricao}
