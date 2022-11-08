@@ -11,7 +11,7 @@ interface ListaDeInteressesProps {
 const ListaDeInteresses = (props: ListaDeInteressesProps) => {
   function renderLista() {
     return props.listaInteresses.map((item) => (
-      <li className="bg-gray-500 rounded-xl w-full m-2 px-2 py-1 text-gray-200">
+      <li key={item.id} className="bg-gray-500 rounded-xl w-full m-2 px-2 py-1 text-gray-200">
         {item}
       </li>
     ));
