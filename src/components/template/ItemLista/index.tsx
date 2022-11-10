@@ -7,10 +7,12 @@ import BotaoChat from "./BotaoChat";
 import React from "react";
 
 interface ItemListapProps {
+  id?:any;
   Nome: string;
   Descricao: string;
   trocar: () => void;
   listaInteresses: any[]
+  urlImg:string;
 }
 
 const ItemLista = (props: ItemListapProps) => {
@@ -47,7 +49,7 @@ const ItemLista = (props: ItemListapProps) => {
       transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
       className="bg-indigo-50 shadow-xl text-gray-900 dark:bg-gray-600 rounded-xl  flex flex-col  w-11/12 h-full grow-1 my-4 dark:text-white"
     >
-      <ImagemItem />
+      <ImagemItem url={props.urlImg}/>
 
       <ConteudoItem Nome={props.Nome} Descricao={props.Descricao} className={`px-1 py-1`} />
 

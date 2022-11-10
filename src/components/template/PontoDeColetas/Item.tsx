@@ -24,7 +24,7 @@ export default function Item(props: PontoDeColetaItemProps) {
       <div className="flex flex-col md:flex-row mt-4">
         <button
           onClick={async () => await props.deletar()}
-          className="flex bg-red-400 rounded-xl h-10 mx-2 p-2 items-center"
+          className="flex bg-red-400 rounded-xl h-10 mx-2 p-2 items-center "
         >
           <span className="mr-1">{lixo}</span>
           <span className="flex md:hidden mr-1">Deletar</span>
