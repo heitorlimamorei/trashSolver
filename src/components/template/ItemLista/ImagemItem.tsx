@@ -1,8 +1,10 @@
-
-const ImagemItem =() => {
+interface ImgemProps{
+    url:string;
+}
+const ImagemItem =(props:ImgemProps) => {
     return (
         <div  className={`w-full rounded-t-xl`}>
-            <img src='83692.jpg' className={`w-full rounded-t-xl`}/>
+            <img src={props.url} className={`w-full rounded-t-xl`}/>
         </div>
     )
 }

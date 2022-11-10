@@ -41,6 +41,7 @@ export default function Trocas() {
             {trocas.filter(troca => !troca.trocado).map((troca: TrocaItemModel) => (
               <li key={troca.id} className="flex flex-col justify-center items-center w-full md:w-1/3">
                 <ItemLista
+                  id={troca.id}
                   Nome={troca.nome}
                   Descricao={troca.descricao}
                   trocar={() =>
@@ -52,6 +53,7 @@ export default function Trocas() {
                     )
                   }
                   listaInteresses={troca.listadeinteresses}
+                  urlImg={troca.Photourl}
                 />
               </li>
             ))}
