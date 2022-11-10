@@ -15,7 +15,7 @@ export default function MenuLateral(props){
             flex flex-col items-center justify-center 
             bg-gradient-to-l from-green-800 to-green-600
             dark:bg-gradient-to-r dark:from-green-800 dark:to-green-600
-            h-20 w-20 
+            md:h-20 md:w-20 h-15 w-15
 
             `}>
                 <Logo />

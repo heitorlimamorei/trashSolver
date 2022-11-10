@@ -19,8 +19,8 @@ const ListaDeInteresses = (props: ListaDeInteressesProps) => {
   return (
     <motion.div
       className="py-2 px-2"
-      onHoverStart={props.onHoverStart}
-      onHoverEnd={props.onHoverEnd}
+      onClick={props.onHoverStart}
+      onHover={props.onHoverEnd}
     >
       <div className="flex flex-row">
         <a className="text-sm m-1 mt-3">Lista de Interesses</a>

@@ -33,7 +33,7 @@ export default function EditarPontoDeColeta() {
           </div>
 
           <Link href={`cadastrar`}>
-          <button className='bg-green-500 p-3 m-1 rounded-xl w-2/12 self-end'>Cadastrar novo item</button>
+          <button className='bg-green-500 p-3 m-1 rounded-xl md:w-2/12 w-5/12 self-end'>Cadastrar novo item</button>
           </Link>
 
           <div>{RenderTest()}</div>

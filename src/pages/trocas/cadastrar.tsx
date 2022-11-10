@@ -49,7 +49,7 @@ export default function CadastrarTroca() {
         <div className={`flex flex-col justify-center items-center w-full h-full
         `}>
             <div className={`
-                flex flex-col  items-center  h-full w-2/3  mt-1
+                flex flex-col  items-center  h-full md:2/3 w-[98%]  mt-1
                 `}>
                 <ProfileInput
                 valor={nome}

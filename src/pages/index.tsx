@@ -10,17 +10,14 @@ export default function Home() {
     <div className={``}>
       <Layout titulo= "Home" subtitulo="Bem-Vindo ao TrashSolver" >
         <div className="w-full h-full flex flex-col">
-          <div className="flex flex-row gap-4 content-between h-[20%]">
-            <Banner className="h-[90%] w-[49%]" text="Veja os pontos de Coleta!"/>
-            <Banner className="h-[90%] w-[49%]" text="Foda-se!!!"/>
+          <div className="flex flex-row gap-3 content-between md:h-[25%] h-[30%]">
+            <Banner className="h-[100%] w-[98%] text-center" text="Veja os pontos de Coleta!"/>
           </div>
-          <div className="flex flex-row content-between gap-5 mt-2">
-            <LinkHome/>
-            <LinkHome/>
-          </div>
-          <div className="flex flex-row content-between gap-5 mt-10">
-            <LinkHome/>
-            <LinkHome/>
+          <div className="flex flex-row flex-wrap h-[36%] content-between gap-3 mt-2">
+            <LinkHome titulo='Ponto de Coleta'/>
+            <LinkHome titulo='Trocas'/>
+            <LinkHome titulo='Perigos do lixo eletrônico'/>
+            <LinkHome titulo='Jogo de tabuleiro!'/>
           </div>
         </div>        
       </Layout>
