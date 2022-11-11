@@ -4,8 +4,9 @@ import ConteudoItem from "./ConteudoItem";
 import ImagemItem from "./ImagemItem";
 import BotaoTroca from "./BotaoTroca";
 import BotaoChat from "./BotaoChat";
-import React from "react";
+import {useState, useEffect} from "react";
 
+import axios from 'axios';
 interface ItemListapProps {
   id?:any;
   Nome: string;
@@ -16,11 +17,23 @@ interface ItemListapProps {
 }
 
 const ItemLista = (props: ItemListapProps) => {
-  const [isHover, toggleHover] = React.useState(false);
+  const [isHover, toggleHover] = useState(false);
+  const [imageUrl, setImageUrl] = useState('')
   const toggleHoverMenu = () => {
     toggleHover(!isHover);
   };
-
+  async function  getImage(id:string):Promise<string> {
+    const resp = await axios.get(`/api/trocas/images/${id}`)
+    let image = await resp.data
+    return await image.url
+  }
+  async function loadImage(): Promise<void> {
+    const resp = await getImage(props.urlImg)
+    setImageUrl(resp)
+  }
+  useEffect(() => {
+    loadImage()
+  },[])
   const subMenuAnimate = {
     enter: {
       opacity: 1,
@@ -49,7 +62,7 @@ const ItemLista = (props: ItemListapProps) => {
       transition={{ duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01] }}
       className="bg-indigo-50 shadow-xl text-gray-900 dark:bg-gray-600 rounded-xl  flex flex-col  w-11/12 h-full grow-1 my-4 dark:text-white"
     >
-      <ImagemItem url={props.urlImg}/>
+      <ImagemItem url={imageUrl}/>
 
       <ConteudoItem Nome={props.Nome} Descricao={props.Descricao} className={`px-1 py-1`} />
 

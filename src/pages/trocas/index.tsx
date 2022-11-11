@@ -29,6 +29,7 @@ export default function Trocas() {
     setRealizarTroca(new RealizarTrocaModel(id, nome, descricao, quemcriou, "", ""));
     router.push('/trocas/realizarTroca')
   }
+
   return (
     <div className={``}>
       <Layout
