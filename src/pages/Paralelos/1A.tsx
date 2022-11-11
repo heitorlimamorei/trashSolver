@@ -7,7 +7,7 @@ export default function Riscos() {
             <Layout titulo='Metais Pesados' subtitulo='Gabriel Saliba, Kenzo Higashi, laura Lobato, Rafael nassau e Renata Passos' className='dark:text-white'>
                 <div className="mt-20 flex flex-col md:flex-row">
                     <div className="flex flex-col mr-2 bg-gray-500 p-4 rounded-2xl">
-                        <h1 className="text-[40px] font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">O QUE SÃO METAIS PESADOS?</h1>
+                        <h1 className="text-[40px] font-bold shadow-2xl rounded-xl p-2 bg-slate-300 dark:bg-slate-700">O QUE SÃO METAIS PESADOS?</h1>
                         <p className="text-[20px]">
                             Apesar de não haver consenso sobre a definição deste termo, pode-se dizer que “metais pesados” são um grupo de elementos químicos com relativa alta densidade e tóxicos em baixas doses. 
                             <br/>
@@ -23,7 +23,7 @@ export default function Riscos() {
 
                 <div className="mt-20 flex flex-col md:flex-row">
                     <div className="flex flex-col mr-2 bg-gray-500 p-4 rounded-2xl">
-                        <h1 className="text-[40px] font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">MERCÚRIO</h1>
+                        <h1 className="text-[40px] p-2 font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">MERCÚRIO</h1>
                         <p className="text-[20px]">
                             Termômetros, Lâmpadas.
                             <br/>
@@ -39,7 +39,7 @@ export default function Riscos() {
 
                 <div className="mt-20 flex flex-col md:flex-row">
                     <div className="flex flex-col mr-2 bg-gray-500 p-4 rounded-2xl">
-                        <h1 className="text-[40px] font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">CHUMBO</h1>
+                        <h1 className="text-[40px] p-2 font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">CHUMBO</h1>
                         <p className="text-[20px]">
                         O Chumbo (Pb) e Estanho (Sn) são utilizados em soldas elétricas.<br/>
 
@@ -54,7 +54,7 @@ export default function Riscos() {
 
                 <div className="mt-20 flex flex-col md:flex-row">
                     <div className="flex flex-col mr-2 bg-gray-500 p-4 rounded-2xl">
-                        <h1 className="text-[40px] font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">CÁDMIO</h1>
+                        <h1 className="text-[40px] p-2 font-bold shadow-2xl rounded-xl bg-slate-300 dark:bg-slate-700">CÁDMIO</h1>
                         <p className="text-[20px] w-full">
                         As baterias de níquel/cádmio ou de cádmio/oxido de níquel são muito utilizadas em aparelhos sem fio como celulares, barbeadores, câmeras de vídeo, flashes, aparelhos eletrônicos portáteis, ferramentas, entre outros.
                         <br/><br/>

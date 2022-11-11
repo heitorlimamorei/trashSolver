@@ -15,7 +15,7 @@ type AppContextProvider = {
 };
 
 const AppContext = createContext<AppContextProps>({
-  tema: "",
+  tema: "dark",
   alternarTema: null,
   realizarTroca: RealizarTrocaModel.realizarTrocaEmBraco(),
   setRealizarTroca: null,
@@ -24,7 +24,7 @@ const AppContext = createContext<AppContextProps>({
 });
 
 export function AppContextProvider(props: AppContextProvider) {
-  const [tema, setTema] = useState("");
+  const [tema, setTema] = useState("dark");
   const [realizarTroca, setRealizarTroca] = useState(
     RealizarTrocaModel.realizarTrocaEmBraco()
   );
@@ -32,7 +32,7 @@ export function AppContextProvider(props: AppContextProvider) {
     PontoDeColetaCompostaModel.emBraco()
   );
   function alternarTema() {
-    const novoTema = tema === "dark" ? "" : "dark";
+    const novoTema = tema === "" ? "dark" : "";
     setTema(novoTema);
     localStorage.setItem("tema", novoTema);
   }

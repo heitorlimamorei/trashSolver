@@ -11,7 +11,7 @@ export default function Tabuleiro() {
                     <img src="../../../Tabuleiro.jpg" className="w-[98%] h-[80%]" alt="" />
                 </div>
 
-                <div className="w-[14%] mx-2 dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
+                <div className="w-full md:w-[14%] mx-2 dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
                     <h1 className="text-[20px] font-bold dark:bg-slate-600 bg-slate-300 rounded-xl p-2 shadow-xl">Computador</h1>
                     <p>
                     <span className="text-[20px] font-bold">1-</span> Você foi entregue em um ponto de coleta e foi reciclado com sucesso! Avance duas casas. <br/>
