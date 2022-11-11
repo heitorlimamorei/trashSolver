@@ -7,6 +7,7 @@ interface TemplateProps {
     titulo: string;
     subtitulo: string;
     children?: any;
+    className:string
 }
 
 export default function Template(props:TemplateProps){
