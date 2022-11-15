@@ -43,6 +43,7 @@ export default function TrocaRealizada(props:TrocaRealizadaComponentProps){
             <div className="my-2">
                 <h2 className={`mb-2`}><span className="font-bold  text-[20px]">Criador - </span>{trocaRealizada.quemcriou}</h2>
                 <h2><span className="font-bold  text-[20px]">Interessado - </span>{trocaRealizada.interessado}</h2>
+                <h2><span className="font-bold  text-[20px]">Item de interesse - </span>{trocaRealizada.itemDeInteresse}</h2>
             </div>
             <div className={`flex flex-col`}>
                <h2 className='font-bold text-[20px]'>Localização</h2>

@@ -38,6 +38,7 @@ export default function EditarPontoDeColeta() {
           <div>
             <h1 className="text-[30px] font-bold mt-2">{pontoDeColeta.nome}</h1>
             <h2 className="">
+              <Link href={`historico`}>Historico</Link>
               <span className="font-bold">Localização:</span>{" "}
               {pontoDeColeta.localizacao}
             </h2>

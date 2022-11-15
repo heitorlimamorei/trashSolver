@@ -20,6 +20,7 @@ export default class RealizarTrocaModel {
   #nome: string;
   #descricao: string;
   #quemcriou: string;
+  #intemDeInteresse:string;
   #interessado: string;
   #pontoDeColetaId: string;
   constructor(
@@ -28,7 +29,8 @@ export default class RealizarTrocaModel {
     descricao: string,
     quemcriou: string,
     pontoDeColetaId: string,
-    interessado: string
+    interessado: string,
+    intemDeInteresse:string
   ) {
     this.#id = id;
     this.#nome = nome;
@@ -36,9 +38,10 @@ export default class RealizarTrocaModel {
     this.#quemcriou = quemcriou;
     this.#pontoDeColetaId = pontoDeColetaId;
     this.#interessado = interessado;
+    this.#intemDeInteresse = intemDeInteresse
   }
   static realizarTrocaEmBraco() {
-    return new RealizarTrocaModel("", "", "", "", "", "");
+    return new RealizarTrocaModel("", "", "", "", "", "", "");
   }
   static async fromRealizarTrocaAPI(trocaRealizada: TrocaRealizadaRespProps) {
     const trocaResp = await axios.get(
@@ -51,7 +54,8 @@ export default class RealizarTrocaModel {
       await trocaData.descricao,
       trocaRealizada.emailCriador,
       trocaRealizada.pontoDeColetaId,
-      trocaRealizada.emailInteressado
+      trocaRealizada.emailInteressado,
+      trocaRealizada.intemDeInteresse
     );
   }
   get id(): string {
@@ -68,6 +72,9 @@ export default class RealizarTrocaModel {
   }
   get pontoDeColetaId(): string {
     return this.#pontoDeColetaId;
+  }
+  get itemDeInteresse(): string {
+    return this.#intemDeInteresse
   }
   async getPontosDeColetaData(): Promise<PontoDeColetaData> {
     const resp = await axios.get(
