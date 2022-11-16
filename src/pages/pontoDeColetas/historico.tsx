@@ -1,5 +1,4 @@
 import Layout from "../../components/template/Layout";
-import Historico from "../../components/template/PontoDeColetas/historico";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { trocaEvent, HistoryEvent } from "../../model/PontoDeColeta/evento";

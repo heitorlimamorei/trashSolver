@@ -40,7 +40,7 @@ async function usuarioNormalizado(usuarioFirebase: any): Promise<Usuario> {
 }
 function gerenciarCookie(logado: boolean) {
   if (logado) {
-    Cookies.set("admin-template-lwolf-auth", logado, {
+    Cookies.set("admin-template-lwolf-auth", "true", {
       expires: 7,
     });
   } else {
@@ -131,6 +131,14 @@ export function AuthProvider(props) {
       setCarregando(false);
     }
   }, []);
+  useEffect(() =>{
+    if(carregando){
+      setTimeout(()=>{
+        setCarregando(false)
+        Router.push('/')
+      },15000)
+    }
+  },[carregando])
   return (
     <AuthContext.Provider
       value={{
