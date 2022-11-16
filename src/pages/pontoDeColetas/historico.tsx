@@ -1,4 +1,5 @@
 import Layout from "../../components/template/Layout";
+import Historico from "../../components/template/PontoDeColetas/historico";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { trocaEvent, HistoryEvent } from "../../model/PontoDeColeta/evento";
@@ -114,6 +115,10 @@ export default function PontoDeColetaHistorico() {
   return (
     <div className={``}>
       <Layout titulo="Historico" subtitulo="">
+
+        <Historico
+        />
+
         <div>
           <ul>{renderHistory()}</ul>
         </div>
