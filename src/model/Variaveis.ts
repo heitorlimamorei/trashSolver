@@ -1,2 +1,2 @@
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://trash-solver.vercel.app'
 export default baseUrl
