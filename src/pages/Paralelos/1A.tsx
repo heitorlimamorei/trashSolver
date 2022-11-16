@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect } from "react";
 import Layout from "../../components/template/Layout";
+import useAppData from "../../data/hook/useAppData";
 
 export default function Riscos() {
     return(
-        <div className=" text">
-            <Layout titulo='Metais Pesados' subtitulo='Gabriel Saliba, Kenzo Higashi, laura Lobato, Rafael nassau e Renata Passos' className='dark:text-white'>
+        <div className="text">
+            <Layout subTema="dark" titulo='Metais Pesados' subtitulo='Gabriel Saliba, Kenzo Higashi, laura Lobato, Rafael nassau e Renata Passos' className='dark:text-white'>
                 <div className="mt-20 flex flex-col md:flex-row">
                     <div className="flex flex-col mr-2 bg-gray-500 p-4 rounded-2xl">
                         <h1 className="text-[40px] font-bold shadow-2xl rounded-xl p-2 bg-slate-300 dark:bg-slate-700">O QUE SÃO METAIS PESADOS?</h1>

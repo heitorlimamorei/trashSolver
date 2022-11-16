@@ -8,13 +8,14 @@ interface TemplateProps {
     subtitulo: string;
     children?: any;
     className?:string
+    subTema?:string;
 }
 
 export default function Template(props:TemplateProps){
     const { tema } = useAppData()
     return (
         <ForcarAutenticacao>
-            <div className={` ${tema} flex h-screen w-screen `}>
+            <div className={` ${tema} ${props.subTema} flex h-screen w-screen `}>
             <MenuLateral />
             <div className={`flex flex-col w-full p-7 bg-gray-300 dark:bg-gray-800 ${props.className}`}>
             <Cabecalho titulo={props.titulo}  subtitulo={props.subtitulo}/>

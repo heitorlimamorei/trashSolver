@@ -57,7 +57,6 @@ export function AuthProvider(props) {
     if (usuarioFirebase?.email) {
       const usuario = await usuarioNormalizado(usuarioFirebase);
       setUsuario(usuario);
-      gerenciarCookie(true);
       setCarregando(false);
       return usuario.email;
     } else {
@@ -121,16 +120,10 @@ export function AuthProvider(props) {
         setCarregando(false);
       });
   }
-  useEffect(() => {
-    if (Cookies.get("admin-template-lwolf-auth")) {
-      const cancelar = () => {
-        onAuthStateChanged(auth, configurarSecao);
-      };
-      return () => cancelar();
-    } else {
+ useEffect(() => {
       setCarregando(false);
-    }
   }, []);
+
   return (
     <AuthContext.Provider
       value={{

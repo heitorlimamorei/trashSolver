@@ -36,7 +36,7 @@ export default function Cadastrar() {
   }
   return (
     <div className={``}>
-      <Layout titulo="Cadastre seu item" subtitulo="">
+      <Layout titulo="Cadastre seu item" subtitulo="" className="dark:text-gray-200">
         <label className="m-2">Nome do item</label>
         <ProfileInput
           placeholder="Digite o nome do item"

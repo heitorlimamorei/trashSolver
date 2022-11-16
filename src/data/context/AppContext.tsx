@@ -9,6 +9,7 @@ interface AppContextProps {
   setRealizarTroca: (troca: any) => void;
   pontoDeColeta: PontoDeColetaCompostaModel;
   setPontoDeColeta: (pontoDeColeta: any) => void;
+  seTerTema: (arg:string) => void;
 }
 type AppContextProvider = {
   children: any;
@@ -21,6 +22,7 @@ const AppContext = createContext<AppContextProps>({
   setRealizarTroca: null,
   pontoDeColeta: PontoDeColetaCompostaModel.emBraco(),
   setPontoDeColeta: null,
+  seTerTema:null
 });
 
 export function AppContextProvider(props: AppContextProvider) {
@@ -36,6 +38,9 @@ export function AppContextProvider(props: AppContextProvider) {
     setTema(novoTema);
     localStorage.setItem("tema", novoTema);
   }
+  function seTerTema(arg){
+    setTema(arg)
+  }
   useEffect(() => {
     const tema = localStorage.getItem("tema");
     setTema(tema);
@@ -49,6 +54,7 @@ export function AppContextProvider(props: AppContextProvider) {
         setRealizarTroca,
         pontoDeColeta,
         setPontoDeColeta,
+        seTerTema
       }}
     >
       {props.children}

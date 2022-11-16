@@ -26,7 +26,7 @@ export default function Trocas() {
     loadTrocas();
   }, []);
   async function seTRealizarTroca(id, nome, descricao, quemcriou) {
-    setRealizarTroca(new RealizarTrocaModel(id, nome, descricao, quemcriou, "", ""));
+    setRealizarTroca(new RealizarTrocaModel(id, nome, descricao, quemcriou, "", "", ""));
     router.push('/trocas/realizarTroca')
   }
 
