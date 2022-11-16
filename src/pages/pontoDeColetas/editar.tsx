@@ -5,7 +5,7 @@ import Layout from "../../components/template/Layout";
 import Item from "../../components/template/PontoDeColetas/Item";
 import useAppData from "../../data/hook/useAppData";
 import useAuth from "../../data/hook/useAuth";
-
+import {bookIcon} from '../../components/icons/Icones'
 export default function EditarPontoDeColeta() {
   const { pontoDeColeta, setPontoDeColeta } = useAppData();
   const { usuario } = useAuth();
@@ -38,16 +38,18 @@ export default function EditarPontoDeColeta() {
           <div>
             <h1 className="text-[30px] font-bold mt-2">{pontoDeColeta.nome}</h1>
             <h2 className="">
-              <Link href={`historico`}>Historico</Link>
               <span className="font-bold">Localização:</span>{" "}
               {pontoDeColeta.localizacao}
             </h2>
           </div>
-
-          <Link href={`cadastrar`}>
-          <button className='bg-green-500 p-3 m-1 rounded-xl md:w-2/12 w-5/12 self-end'>Cadastrar novo item</button>
+          <div className="flex justify-end w-full">
+          <Link href={`historico`}>
+          <button className='bg-green-500 py-3 px-3 m-1 rounded-xl text-gray-200'>{bookIcon}</button>
           </Link>
-
+          <Link href={`cadastrar`}>
+          <button className='bg-green-500 p-3 m-1 rounded-xl md:w-2/12 w-5/12'>Cadastrar novo item</button>
+          </Link>
+          </div>
           <div>
             <ul>{renderItens()}</ul>
           </div>
