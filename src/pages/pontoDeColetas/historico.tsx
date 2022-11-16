@@ -75,9 +75,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
-            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            className="bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            icone={usersGroupIcon(7)}
           >
-          {usersGroupIcon(6)}
+          
           </HistoryEventComponent>
         );
       } else if (evento.tipo === "post") {
@@ -91,9 +92,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
-            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            className=" bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            icone={upload}
           >
-            {upload}
+            
           </HistoryEventComponent>
         );
       } else if (evento.tipo === "coleta") {
@@ -107,9 +109,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
-            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            className="bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
+            icone={check}
           >
-            {check}
+            
           </HistoryEventComponent>
         );
       }
