@@ -15,8 +15,8 @@ export default function HistoryEventComponent(
 ) {
   return (
     <li className={`${props.className}`}>
-      <h1>{props.descricao}</h1>
-      <h3>{props.tipo}</h3>
+      <p><h1 className="text-[40px] font-bold my-1">Descrição:</h1> {props.descricao}</p>
+      <h1>{props.tipo}</h1>
       {props.formatedDate.day}/{props.formatedDate.month}/
       {props.formatedDate.year}
       <span>{props.children}</span>

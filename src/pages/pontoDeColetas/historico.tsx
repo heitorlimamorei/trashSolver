@@ -75,6 +75,7 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
           >
           {usersGroupIcon(6)}
           </HistoryEventComponent>
@@ -90,6 +91,7 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
           >
             {upload}
           </HistoryEventComponent>
@@ -105,6 +107,7 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            className="dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
           >
             {check}
           </HistoryEventComponent>
@@ -115,10 +118,6 @@ export default function PontoDeColetaHistorico() {
   return (
     <div className={``}>
       <Layout titulo="Historico" subtitulo="">
-
-        <Historico
-        />
-
         <div>
           <ul>{renderHistory()}</ul>
         </div>
