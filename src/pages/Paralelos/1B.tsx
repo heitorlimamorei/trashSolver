@@ -6,10 +6,10 @@ export default function Tabuleiro() {
     return (
         <Layout titulo='Jogo' subtitulo='Jogo'>
             <div className='dark:text-white flex flex-col md:flex-row'>
-                <div className='flex flex-col w-[60%]'>
+                <div className='flex flex-col w-[100%]'>
                      <h1 className=' text-[30px] font-bold'>Explicação:</h1>
                     <p className='mb-10'>Nesse jogo cada casa corresponde a uma instrução a ser seguida, existem 3 caminhos como representado no tabuleiro abaixo:</p>
-                    <img src="../../../Tabuleiro.jpg" className="w-[98%] h-[80%]" alt="" />
+                    <img src="../../../Tabuleiro.jpg" className="w-full h-[80%] md:w-[98%] md:h-[80%]" alt="" />
                 </div>
 
                 <div className="w-full md:w-[14%] mx-2 dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
