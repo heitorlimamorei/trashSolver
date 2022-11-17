@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Layout from '../../components/template/Layout'
 
 
@@ -27,7 +28,7 @@ export default function Tabuleiro() {
                     </p>
                 </div>
 
-                <div className="mx-2 w-[14%] dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
+                <div className="w-full md:w-[14%] mx-2 dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
                     <h1 className="text-[20px] font-bold dark:bg-slate-600 bg-slate-300 rounded-xl p-2 shadow-xl">Celular</h1>
                     <span className="text-[20px] font-bold">1-</span> Parabéns! Você realizou uma campanha na sua escola e ajudou o meio ambiente. Avance uma casa. <br/>
                     <span className="text-[20px] font-bold">2-</span> O celular foi descartado na floresta e matou animais, desequilibrando a cadeia alimentar. <br/>
@@ -39,7 +40,7 @@ export default function Tabuleiro() {
                     <span className="text-[20px] font-bold">8-</span> Você doou seu celular que ainda funciona para uma pessoa que esteva precisando.<br/>
                 </div>
 
-                <div className="mx-2 w-[14%] dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
+                <div className="w-full md:w-[14%] mx-2 dark:bg-gray-500 bg-gray-400 rounded-xl p-2 text-[12px]">
                     <h1 className="text-[20px] font-bold dark:bg-slate-600 bg-slate-300 rounded-xl p-2 shadow-xl">Pilha</h1>
                     <span className="text-[20px] font-bold">1-</span> Você descartou corretamente o lixo e evitou a contaminação de 20 mil litros de água. Avance duas casas!<br/>
                     <span className="text-[20px] font-bold">2-</span> Você infectou uma pessoa com o mau descarte desse lixo. Volte uma casa<br/>
