@@ -40,8 +40,8 @@ export class HistoryEvent {
   getFormetedDate() {
     const dataFormatada = new Date(this.#data.seconds * 1000);
     return {
-      day: dataFormatada.getDay(),
-      month: dataFormatada.getMonth(),
+      day: dataFormatada.getDate(),
+      month: dataFormatada.getMonth()+1,
       year: dataFormatada.getFullYear(),
     }
   }

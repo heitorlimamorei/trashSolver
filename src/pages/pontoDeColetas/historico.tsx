@@ -4,7 +4,7 @@ import axios from "axios";
 import { trocaEvent, HistoryEvent } from "../../model/PontoDeColeta/evento";
 import useAppData from "../../data/hook/useAppData";
 import HistoryEventComponent from "../../components/template/HistoryEventComponent";
-import {check, upload, usersGroupIcon} from '../../components/icons/Icones'
+import { check, upload, usersGroupIcon } from "../../components/icons/Icones";
 interface evento {
   id: string;
   pontoId: string;
@@ -74,10 +74,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            realizadoPor={evento.realizadoPor}
             className="bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
-            icone={usersGroupIcon(7)}
           >
-          
+            {usersGroupIcon(7)}
           </HistoryEventComponent>
         );
       } else if (evento.tipo === "post") {
@@ -91,10 +91,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            realizadoPor={evento.realizadoPor}
             className=" bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
-            icone={upload}
           >
-            
+            {check}
           </HistoryEventComponent>
         );
       } else if (evento.tipo === "coleta") {
@@ -108,10 +108,10 @@ export default function PontoDeColetaHistorico() {
               month: evento.getFormetedDate().month,
               year: evento.getFormetedDate().year,
             }}
+            realizadoPor={evento.realizadoPor}
             className="bg-indigo-50 dark:bg-gray-600 dark:text-white w-[98%] h-[20%] rounded-xl shadow-xl p-3"
-            icone={check}
           >
-            
+            {check}
           </HistoryEventComponent>
         );
       }
