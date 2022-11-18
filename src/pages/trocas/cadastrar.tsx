@@ -17,7 +17,7 @@ export default function CadastrarTroca() {
   const {usuario} = useAuth()
   const [photoUrl, SetPhotoUrl] =  useState<string>(null)
   const [tipo, setTipo] =  useState<string>(null)
-  const tiposMock =  ["Computador", "Motores eletricos", "Transistor", "Impressora", "Controle"]
+  const tiposMock =  ["Computador", "Motores eletricos", "Transistor", "Impressora", "Controle", "Placa de silicio"]
   const [descricao, setDescricao] = useState<string>(null)
   const [novoInteresse, setNovoInteresse] = useState<string>(null)
   const [listadeinteresses, setListadeinteresses] = useState(TiposPersonalizadosModel.criarArrayPadrao())

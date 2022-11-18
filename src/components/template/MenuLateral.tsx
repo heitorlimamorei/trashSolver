@@ -1,5 +1,5 @@
 import MenuItem from "./MenuItem";
-import {IconeAjustes, IconeCasa, IconeSino, IconeSair,ponto, usersGroupIcon } from '../icons/Icones'
+import {IconeAjustes, FeedBack, IconeCasa, IconeSino, IconeSair,ponto, usersGroupIcon } from '../icons/Icones'
 import Logo from "./Logo";
 import useAuth from "../../data/hook/useAuth";
 
@@ -24,6 +24,7 @@ export default function MenuLateral(props){
                 <MenuItem titulo="Home" url="/" icone={IconeCasa} />
                 <MenuItem titulo="Coletas" url="/pontoDeColetas" icone={ponto(6)} />
                 <MenuItem titulo="Trocar" url="/trocas" icone={usersGroupIcon(6)} />
+                <MenuItem titulo="FeedBack" url="/FeedBack" icone={FeedBack} />
             </ul>
             <ul className={``}>
             <MenuItem titulo="Sair"  icone={IconeSair} onClick={logout} className={`

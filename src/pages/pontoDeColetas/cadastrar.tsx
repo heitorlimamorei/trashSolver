@@ -9,7 +9,7 @@ import useAppData from "../../data/hook/useAppData";
 import useAuth from "../../data/hook/useAuth";
 
 export default function Cadastrar() {
-  let tiposLista = ["Computador", "Motores eletricos", "Transistor", "Impressora", "Controle"]
+  let tiposLista =  ["Computador", "Motores eletricos", "Transistor", "Impressora", "Controle", "Placa de silicio"]
   const router = useRouter();
   const {setPontoDeColeta, pontoDeColeta} = useAppData()
   const [nome, setNome] = useState<string>(null);
