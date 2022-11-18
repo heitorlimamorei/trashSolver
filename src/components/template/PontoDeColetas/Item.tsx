@@ -1,5 +1,5 @@
 import { lixo } from "../../icons/Icones";
-import { check } from "../../icons/Icones";
+import { check, adpterCheck } from "../../icons/Icones";
 
 interface PontoDeColetaItemProps {
   nome: string;
@@ -31,9 +31,9 @@ export default function Item(props: PontoDeColetaItemProps) {
         </button>
         <button
           onClick={async () => await props.coletar()}
-          className="flex bg-green-500 rounded-xl md:w-9 h-10 p-2 mx-2 mt-2 md:mt-0 md:ml-2 items-center"
+          className="flex bg-green-500 rounded-xl md:w-9 h-10 p-2 mx-2 mt-2 md:mt-0 md:ml-2 md:justify-center items-center"
         >
-          <span className="flex self-start mr-1">{check}</span>
+          <span className="flex self-start mr-1 md:ml-1 md:mx-1">{adpterCheck(6)}</span>
           <span className="flex self-end md:hidden mr-1">Coletar</span>
         </button>
       </div>

@@ -9,6 +9,8 @@ interface TemplateProps {
     children?: any;
     className?:string
     subTema?:string;
+    feedBack?: boolean;
+    addChild?: any;
 }
 
 export default function Template(props:TemplateProps){
@@ -18,7 +20,9 @@ export default function Template(props:TemplateProps){
             <div className={` ${tema} ${props.subTema} flex h-screen w-screen `}>
             <MenuLateral />
             <div className={`flex flex-col w-full p-7 bg-gray-300 dark:bg-gray-800 ${props.className}`}>
-            <Cabecalho titulo={props.titulo}  subtitulo={props.subtitulo}/>
+            <Cabecalho feedBack={props?.feedBack} titulo={props.titulo}  subtitulo={props.subtitulo}>
+                {props.addChild}
+            </Cabecalho>
             <Conteudo>
                 {props.children}
             </Conteudo>
