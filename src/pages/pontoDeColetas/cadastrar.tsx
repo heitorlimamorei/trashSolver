@@ -36,28 +36,28 @@ export default function Cadastrar() {
   }
   return (
     <div className={``}>
-      <Layout titulo="Cadastre seu item" subtitulo="" className="dark:text-gray-200">
-        <label className="m-2">Nome do item</label>
+      <Layout titulo="Cadastre seu item" subtitulo="" >
+        <label className="m-2 dark:text-gray-200">Nome do item</label>
         <ProfileInput
           placeholder="Digite o nome do item"
           valor={nome}
           setValor={setNome}
           tipo={"string"}
         />
-        <label className="m-2">Tipo</label>
+        <label className="m-2 dark:text-gray-200">Tipo</label>
         <SelecionarTipo 
         tipo={tipo}
         setTipo={setTipo}
         tiposLista={tiposLista}
         />
-        <label className="m-2">Link da imagem</label>
+        <label className="m-2 dark:text-gray-200">Link da imagem</label>
         <ProfileInput
           placeholder="Digite a url da imagem do item"
           valor={photoUrl}
           setValor={setPhotoUrl}
           tipo={"string"}
         />
-        <label className="m-2">Descrição</label>
+        <label className="m-2 dark:text-gray-200">Descrição</label>
         <LongTextInput 
         valor={descricao}
         setValor={setDescricao}
