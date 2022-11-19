@@ -33,7 +33,7 @@ export default function Autenticacao() {
     >
       <div className={`hidden md:block md:w-1/2 lg:w-2/3 `}>
         <img
-          src="https://source.unsplash.com/random"
+          src="../../../Trash-Solver.png"
           alt="Imagem de autenticação"
           className="h-screen w-full object-cover"
         />
