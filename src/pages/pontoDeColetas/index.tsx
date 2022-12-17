@@ -1,18 +1,26 @@
 import Layout from "../../components/template/Layout";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import PontoDeColetaBaseModel from "../../model/PontoDeColeta/Base";
 import PontoDeColetaCompostaModel from "../../model/PontoDeColeta/Composta";
 import SelecionarPonto from "../../components/template/PontoDeColetas/SelecionarPonto";
 import useAppData from "../../data/hook/useAppData";
 import { useRouter } from "next/router";
-export default function PontosDeColeta() {
-  const [pontosDeColeta, setPontosDeColeta] = useState<PontoDeColetaBaseModel[]>([PontoDeColetaBaseModel.EmBranco()]);
-  const {pontoDeColeta, setPontoDeColeta} = useAppData();
+export async function getStaticProps() {
+  const resp = await (
+    await axios.get("http://localhost:3000/api/pontodecoleta")
+  ).data;
+  return {
+    props: {
+      pontosDeColeta: resp,
+    },
+  };
+}
+export default function PontosDeColeta({ pontosDeColeta }) {
+  const { setPontoDeColeta } = useAppData();
   const router = useRouter();
-  async function getPontos(): Promise<PontoDeColetaBaseModel[]> {
-    const resp = await axios.get("/api/pontodecoleta");
-    return await resp.data.map(
+  function getPontos(): PontoDeColetaBaseModel[] {
+    const resp = pontosDeColeta;
+    return resp.map(
       (ponto) =>
         new PontoDeColetaBaseModel(
           ponto.id,
@@ -23,35 +31,26 @@ export default function PontosDeColeta() {
         )
     );
   }
-  async function loadPontos():Promise<void>{
-    const resp = await getPontos();
-    setPontosDeColeta(resp)
+  async function irEditar(id) {
+    setPontoDeColeta(await PontoDeColetaCompostaModel.getById(id));
+    router.push("pontoDeColetas/editar");
   }
-  useEffect(()=>{
-    loadPontos()
-  },[])
-  async function irEditar(id){
-    setPontoDeColeta(await PontoDeColetaCompostaModel.getById(id))
-    router.push('pontoDeColetas/editar')
-  }
-  function renderPontos(){
-    return pontosDeColeta.map(ponto => {
-        return(
-          <SelecionarPonto 
+  function renderPontos() {
+    return getPontos().map((ponto) => {
+      return (
+        <SelecionarPonto
           nome={ponto.nome}
           key={ponto.id}
           localizacao={ponto.localizacao}
           onClick={() => irEditar(ponto.id)}
-          />
-        )
-    })
+        />
+      );
+    });
   }
   return (
     <div className={``}>
       <Layout titulo="Lista de pontos de coleta" subtitulo="">
-        <ul>
-            {renderPontos()}
-        </ul>
+        <ul>{renderPontos()}</ul>
       </Layout>
     </div>
   );
