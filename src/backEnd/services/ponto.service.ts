@@ -22,7 +22,7 @@ async function deletePonto(id) {
   if (await pontoRepository.pontoExists(id)) {
     return await pontoRepository.deletePontoDeColeta(id);
   } else {
-    throw new Error("Usuario não existe");
+    throw new Error("Ponto de coleta não existe");
   }
 }
 async function createPonto(ponto: Ponto) {
@@ -32,7 +32,7 @@ async function updatePonto(ponto: PontoUpdate) {
   if (await pontoRepository.pontoExists(ponto.id)) {
     return await pontoRepository.updatePontoDeColeta(ponto);
   } else {
-    throw new Error("Usuario não existe");
+    throw new Error("Ponto de coleta não existe");
   }
 }
 export default {

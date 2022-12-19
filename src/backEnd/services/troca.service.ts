@@ -40,7 +40,7 @@ async function updateTroca(troca: TrocaUpdate) {
   if (await trocaRepository.trocaExists(troca.id)) {
     return await trocaRepository.updateTroca(troca);
   } else {
-    throw new Error("Usuario não existe");
+    throw new Error("Troca não existe");
   }
 }
 export default {

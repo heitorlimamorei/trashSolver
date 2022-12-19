@@ -50,7 +50,7 @@ async function updatePontoDeColeta(ponto){
     return await getPontoDeColetaById(pontoRef.id)
 }
 async function pontoExists(id:string){
-    const docRef = doc(db, `users/${id}`)
+    const docRef = doc(db, `pontosDeColeta/${id}`)
     const pontoRef = await getDoc(docRef)
     return pontoRef.exists()
 }
