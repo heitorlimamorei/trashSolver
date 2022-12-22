@@ -5,6 +5,8 @@ import { useState } from "react";
 import ProfileInput from "../components/template/ProfileInput";
 import FeedBackButton from "../components/template/FeedBack/FeedBackButton";
 import useAuth from "../data/hook/useAuth";
+import { ToastContainer, toast } from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/router";
 export default function FeedBack(){
     const {usuario} = useAuth()
@@ -21,12 +23,19 @@ export default function FeedBack(){
             verificado: false,
             email: usuario.email
         })
-        window.alert('Obrigado por dar sua opinião, comentario enviado!')
-        router.push('/CommentsFeed')
+        toast.success('Obrigado por dar sua opinião, comentario enviado!', {
+            position: 'top-center',
+
+        })
+        setTimeout(()=>{
+            router.push('/CommentsFeed')
+        }, 4000)
+       
     }
     return (
         <div>
             <Layout feedBack titulo="Dê sua opinião" subtitulo="Deixe seu comentário e vejo os outros">
+                <ToastContainer />
                 <div className="flex flex-col  w-full h-full  items-center justify-center">
                     <div className="flex flex-col  mt-10 h-full items-center justify-center">
                         <ProfileInput 

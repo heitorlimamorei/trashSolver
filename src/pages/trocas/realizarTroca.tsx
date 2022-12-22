@@ -8,7 +8,8 @@ import useAuth from "../../data/hook/useAuth";
 import { useRouter } from "next/router";
 import useAppData from "../../data/hook/useAppData";
 import RealizarTrocaModel from "../../model/RealizarTroca";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function RealizarTroca() {
   const {realizarTroca, setRealizarTroca} = useAppData()
   const router = useRouter();
@@ -52,15 +53,15 @@ export default function RealizarTroca() {
       )
       router.push('realizadas')
     } catch (err) {
-      console.log(err);
+      toast.error(err.message, {theme:'colored'})
     }
   }
   async function getPontoId() {
     try {
       const data = await getPontosDeColeta();
-      return await data.find((ponto) => ponto.nome === pontoDeColeta).id;
+      return (await data.find((ponto) => ponto.nome === pontoDeColeta))?.id;
     } catch (err) {
-      console.log(`ERRO:400 Ponto de coleta invalido: ${err.message}`);
+      toast.error(`Ponto de coleta invalido: ${err.message}`, {theme:'colored'})
     }
   }
   async function SetterPontoDeColetaId() {
@@ -73,7 +74,8 @@ export default function RealizarTroca() {
       const resp = await axios.get(`/api/trocas/${idDeTroca}`);
       return await { ...resp.data };
     } catch (err) {
-      console.log(err);
+      toast.error(`${err.message}`, {theme:'colored'})
+
     }
   }
   async function getPontosDeColeta() {
@@ -81,7 +83,7 @@ export default function RealizarTroca() {
       const resp = await axios.get(`/api/pontodecoleta`);
       return await resp.data;
     } catch (err) {
-      console.log(err);
+      toast.error(`${err.message}`, {theme:'colored'})
     }
   }
   async function loader(): Promise<void> {
@@ -92,7 +94,7 @@ export default function RealizarTroca() {
       console.log("Item de interesse:" + (await data.listadeinteresses[0]));
       SetEmailDoCriador(await data.quemcriou);
     } catch (err) {
-      console.log(`ERRO:400: Id da troca é invalido: ${err.message}`);
+      toast.error(`Id da troca é invalido: ${err.message}`, {theme:'colored'})
     }
   }
   async function PontoDeColetaLoader(): Promise<void> {
@@ -119,6 +121,7 @@ export default function RealizarTroca() {
         titulo="Cadastre sua troca"
         subtitulo="Aqui você pode criar um post de troca!"
       >
+        <ToastContainer />
         <div
           className={`flex flex-col justify-center items-center w-full h-full
         `}
