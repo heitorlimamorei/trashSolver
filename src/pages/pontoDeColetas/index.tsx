@@ -1,41 +1,47 @@
 import Layout from "../../components/template/Layout";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import PontoDeColetaBaseModel from "../../model/PontoDeColeta/Base";
 import PontoDeColetaCompostaModel from "../../model/PontoDeColeta/Composta";
 import SelecionarPonto from "../../components/template/PontoDeColetas/SelecionarPonto";
 import useAppData from "../../data/hook/useAppData";
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-export default function PontosDeColeta() {
+import useSWR from "swr";
+import React from "react";
+async function getPontos(
+  url: string = "/api/pontodecoleta"
+): Promise<PontoDeColetaBaseModel[]> {
+  const resp = await axios.get(url);
+  return await resp.data.map(
+    (ponto) =>
+      new PontoDeColetaBaseModel(
+        ponto.id,
+        ponto.nome,
+        ponto.criador,
+        ponto.localizacao,
+        ponto.tiposDeItens
+      )
+  );
+}
+const PontosDeColeta = React.memo(() => {
   const [pontosDeColeta, setPontosDeColeta] = useState<
     PontoDeColetaBaseModel[]
   >([PontoDeColetaBaseModel.EmBranco()]);
   const { pontoDeColeta, setPontoDeColeta } = useAppData();
   const router = useRouter();
-  async function getPontos(): Promise<PontoDeColetaBaseModel[]> {
-    const resp = await axios.get("/api/pontodecoleta");
-    return await resp.data.map(
-      (ponto) =>
-        new PontoDeColetaBaseModel(
-          ponto.id,
-          ponto.nome,
-          ponto.criador,
-          ponto.localizacao,
-          ponto.tiposDeItens
-        )
-    );
-  }
-  async function loadPontos(): Promise<void> {
-    const resp = await getPontos();
+  const { data, isLoading } = useSWR("/api/pontodecoleta", getPontos);
+  const loadPontos = useCallback(async (): Promise<void> => {
+    const resp = data ?? [PontoDeColetaBaseModel.EmBranco()];
     setPontosDeColeta(resp);
-  }
+  }, [data]);
   useEffect(() => {
-    loadPontos();
-  }, []);
-  async function irEditar(id) {
+    if (!isLoading) {
+      loadPontos();
+    }
+  }, [data]);
+  async function irEditar(id:string) {
     try {
       setPontoDeColeta(await PontoDeColetaCompostaModel.getById(id));
       router.push("pontoDeColetas/editar");
@@ -46,7 +52,7 @@ export default function PontosDeColeta() {
       });
     }
   }
-  function renderPontos() {
+  const renderPontos = useCallback(() => {
     return pontosDeColeta.map((ponto) => {
       return (
         <SelecionarPonto
@@ -57,7 +63,7 @@ export default function PontosDeColeta() {
         />
       );
     });
-  }
+  }, [pontosDeColeta]);
   return (
     <div className={``}>
       <Layout titulo="Lista de pontos de coleta" subtitulo="">
@@ -66,4 +72,5 @@ export default function PontosDeColeta() {
       </Layout>
     </div>
   );
-}
+});
+export default PontosDeColeta;

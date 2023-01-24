@@ -1,30 +1,36 @@
 import Layout from "../../components/template/Layout";
 import axios from "axios";
 import baseUrl from "../../model/Variaveis";
-import RealizarTrocaModel from "../../model/RealizarTroca";
-
+import RealizarTrocaModel from "../../model/RealizarTroca"; 
 import ItemLista from "../../components/template/ItemLista";
 import { useEffect, useState } from "react";
 import TrocaItemModel from "../../model/TrocaItemModel";
 import useAppData from "../../data/hook/useAppData";
 import { useRouter } from "next/router";
 import Banner from "../../components/template/ItemLista/BannerTrocas";
-
+import useSWR from "swr";
+async function getTrocas(url:string = "/api/trocas"): Promise<TrocaItemModel[]> {
+  const resp = await axios.get(url);
+  return await resp.data.map((troca) => TrocaItemModel.fromJSON(troca));
+}
 export default function Trocas() {
   const [trocas, setTrocas] = useState<TrocaItemModel[]>([]);
   const router = useRouter()
   const {setRealizarTroca} = useAppData();
-  async function getTrocas(): Promise<TrocaItemModel[]> {
-    const resp = await axios.get("/api/trocas");
-    return await resp.data.map((troca) => TrocaItemModel.fromJSON(troca));
-  }
+  const {data, isLoading} = useSWR("/api/trocas", getTrocas, {
+    refreshInterval: 100000,
+    revalidateOnReconnect: true,
+    revalidateIfStale: true,
+  })
   async function loadTrocas(): Promise<void> {
-    const resp = await getTrocas();
+    const resp = data ?? trocas
     setTrocas(resp);
   }
   useEffect(() => {
-    loadTrocas();
-  }, []);
+    if(!isLoading){
+      loadTrocas();
+    }
+  }, [data]);
   async function seTRealizarTroca(id, nome, descricao, quemcriou) {
     setRealizarTroca(new RealizarTrocaModel(id, nome, descricao, quemcriou, "", "", ""));
     router.push('/trocas/realizarTroca')
