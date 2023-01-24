@@ -25,7 +25,7 @@ async function getPontos(
       )
   );
 }
-const PontosDeColeta = React.memo(() => {
+export default function PontosDeColeta() {
   const [pontosDeColeta, setPontosDeColeta] = useState<
     PontoDeColetaBaseModel[]
   >([PontoDeColetaBaseModel.EmBranco()]);
@@ -72,5 +72,4 @@ const PontosDeColeta = React.memo(() => {
       </Layout>
     </div>
   );
-});
-export default PontosDeColeta;
+}
